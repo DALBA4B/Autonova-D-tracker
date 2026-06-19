@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Autonova Orders Tagger",
+  "version": "1.0.4",
+  "description": "Записывает кто оформил заказ на autonovad.ua и показывает имя в истории заказов.",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": [
+    "https://autonovad.ua/*",
+    "https://*.cp.autonovad.ua/*",
+    "https://zsnecazcpmbqezlylnjr.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Autonova Orders Tagger",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://autonovad.ua/*"
+      ],
+      "js": ["config.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["https://autonovad.ua/*"]
+    }
+  ]
+}

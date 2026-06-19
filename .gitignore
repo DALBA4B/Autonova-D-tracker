@@ -1,0 +1,21 @@
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test / temporary files
+Історія замовлень.html
+*.tmp
+
+# Packaged builds
+*.zip
+
+# Logs (local)
+*.log
+logs/

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Autonova Orders Tagger</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Autonova Orders Tagger <span id="version" class="version"></span></h1>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="profile">Профіль</button>
+      <button class="tab" data-tab="info">Інфо</button>
+      <button class="tab" data-tab="debug">Діагностика</button>
+      <button class="tab" data-tab="admin" id="admin-tab" hidden>Адмін</button>
+    </nav>
+
+    <section class="tab-pane active" data-pane="profile">
+      <label for="name">Ваше імʼя</label>
+      <input id="name" type="text" placeholder="Наприклад: Андрій" autocomplete="off">
+
+      <label style="margin-top:10px">Колір бейджа</label>
+      <div id="color-grid" class="color-grid"></div>
+      <div class="preview-row">
+        <span class="preview-label">Прев&apos;ю:</span>
+        <span id="badge-preview" class="badge-preview">Імʼя</span>
+      </div>
+
+      <button id="save">Зберегти</button>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="tab-pane" data-pane="info">
+      <div class="meta">
+        <div>Код клієнта: <span id="client-code">—</span></div>
+        <div>Очікується: <span id="expected-code">—</span></div>
+        <div>Офлайн-черга: <span id="pending-count">0</span></div>
+      </div>
+    </section>
+
+    <section class="tab-pane" data-pane="debug">
+      <div class="debug">
+        <div>Записів у лозі: <span id="log-count">0</span></div>
+        <button id="push-log" class="secondary primary-action">Надіслати логи розробнику</button>
+        <button id="download-log" class="secondary">Скачати лог (JSON)</button>
+        <button id="clear-log" class="secondary danger">Очистити лог</button>
+        <button id="clear-cache" class="secondary danger">Очистити кеш імен</button>
+      </div>
+    </section>
+
+    <section class="tab-pane" data-pane="admin">
+      <div class="admin">
+        <div class="admin-toolbar">
+          <span class="admin-count" id="admin-count">—</span>
+          <button id="admin-refresh" class="secondary admin-refresh">Оновити</button>
+        </div>
+        <div id="admin-list" class="admin-list"></div>
+      </div>
+    </section>
+  </div>
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
