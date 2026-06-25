@@ -451,9 +451,21 @@ $('version').addEventListener('click', function () {
   }
 });
 
+// ---------- Functions: auto-expand ----------
+function refreshAutoExpand() {
+  chrome.storage.local.get(['autoExpandOrders'], function (obj) {
+    if ($('auto-expand')) $('auto-expand').checked = !!(obj && obj.autoExpandOrders);
+  });
+}
+
+$('auto-expand').addEventListener('change', function () {
+  chrome.storage.local.set({ autoExpandOrders: $('auto-expand').checked });
+});
+
 initTabs();
 buildColorGrid();
 setActiveSwatch(DEFAULT_COLOR);
 refreshState();
 refreshLogCount();
+refreshAutoExpand();
 setupAdminMode();

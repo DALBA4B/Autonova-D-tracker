@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Autonova Orders Tagger",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Записывает кто оформил заказ на autonovad.ua и показывает имя в истории заказов.",
   "permissions": ["storage", "alarms"],
   "host_permissions": [

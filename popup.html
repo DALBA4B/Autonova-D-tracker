@@ -13,6 +13,7 @@
       <button class="tab active" data-tab="profile">Профіль</button>
       <button class="tab" data-tab="info">Інфо</button>
       <button class="tab" data-tab="debug">Діагностика</button>
+      <button class="tab" data-tab="functions">Функції</button>
       <button class="tab" data-tab="admin" id="admin-tab" hidden>Адмін</button>
     </nav>
 
@@ -46,6 +47,16 @@
         <button id="download-log" class="secondary">Скачати лог (JSON)</button>
         <button id="clear-log" class="secondary danger">Очистити лог</button>
         <button id="clear-cache" class="secondary danger">Очистити кеш імен</button>
+      </div>
+    </section>
+
+    <section class="tab-pane" data-pane="functions">
+      <div class="functions">
+        <label class="toggle-row">
+          <input type="checkbox" id="auto-expand">
+          <span>Автоматично розгортати замовлення</span>
+        </label>
+        <p class="hint">При вході на сторінку історії замовлень усі позиції розгорнуться автоматично.</p>
       </div>
     </section>
 

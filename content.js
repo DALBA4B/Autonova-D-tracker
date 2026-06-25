@@ -261,6 +261,7 @@
     console.log('[ANO] history rows parsed:', rows.length);
 
     injectBadgeStyles();
+    autoExpandIfEnabled();
 
     // Step A: render from local cache instantly (no network).
     chrome.storage.local.get([CACHE_KEY], function (obj) {
@@ -309,6 +310,28 @@
           if (added > 0) console.log('[ANO] rendered', added, 'new badges from Supabase');
         }
       );
+    });
+  }
+
+  // ---------- Auto-expand orders on history page ----------
+  function autoExpandIfEnabled() {
+    chrome.storage.local.get(['autoExpandOrders'], function (obj) {
+      if (!obj || !obj.autoExpandOrders) return;
+      function tryClick() {
+        const btn = document.querySelector('input#showAll');
+        if (btn) {
+          btn.click();
+          clog('auto-expand-triggered', { id: btn.id, cls: btn.className });
+        } else {
+          clog('auto-expand-missing-btn', { selector: 'input#showAll' });
+        }
+      }
+      // Give the page a moment to finish any JS initialization
+      if (document.readyState === 'complete') {
+        setTimeout(tryClick, 400);
+      } else {
+        window.addEventListener('load', function () { setTimeout(tryClick, 400); }, { once: true });
+      }
     });
   }
 

@@ -1,0 +1,794 @@
+[
+  {
+    "data": {
+      "data": {
+        "href": "https://autonovad.ua/ru/?srsltid=AfmBOopWhsIy70h4A8SL-WVlK4d9r5EkQktTVknqHZItzC1QTyDLxaBJ",
+        "readyState": "interactive"
+      },
+      "url": "https://autonovad.ua/ru/?srsltid=AfmBOopWhsIy70h4A8SL-WVlK4d9r5EkQktTVknqHZItzC1QTyDLxaBJ"
+    },
+    "event": "content/content-boot",
+    "source": "bg",
+    "ts": 1781878486885
+  },
+  {
+    "data": {
+      "data": {
+        "fragment": "index.html?id=27",
+        "href": "https://autonovad.ua/ru/?srsltid=AfmBOopWhsIy70h4A8SL-WVlK4d9r5EkQktTVknqHZItzC1QTyDLxaBJ",
+        "onHistory": false
+      },
+      "url": "https://autonovad.ua/ru/?srsltid=AfmBOopWhsIy70h4A8SL-WVlK4d9r5EkQktTVknqHZItzC1QTyDLxaBJ"
+    },
+    "event": "content/process-history-entry",
+    "source": "bg",
+    "ts": 1781878486887
+  },
+  {
+    "method": "GET",
+    "pageUrl": "https://autonovad.ua/ru/?srsltid=AfmBOopWhsIy70h4A8SL-WVlK4d9r5EkQktTVknqHZItzC1QTyDLxaBJ",
+    "reqBody": null,
+    "respBody": "[{\"id\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u0417\\u0430\\u043f\\u0447\\u0430\\u0441\\u0442\\u0438\\u043d\\u0438 \\u0434\\u043b\\u044f \\u0422\\u041e\",\"alias\":\"zapchasti-dlya-t-o\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zapchasti-dlya-t-o\\/\",\"path\":\"zapchasti-dlya-t-o\",\"categories\":[{\"id\":\"44ba3d8c-d4b3-4726-bc18-8e175ac55830\",\"parentId\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u0424\\u0438\\u043b\\u044c\\u0442\\u0440\\u0430\",\"alias\":\"filtra\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/filtra\\/\",\"path\":\"zapchasti-dlya-t-o\\/filtra\",\"categories\":[{\"id\":\"1f867d30-0c1a-42a2-9f5c-515d36d257ea\",\"parentId\":\"44ba3d8c-d4b3-4726-bc18-8e175ac55830\",\"name\":\"\\u041c\\u0430\\u0441\\u043b\\u044f\\u043d\\u044b\\u0439 \\u0444\\u0438\\u043b\\u044c\\u0442\\u0440\",\"alias\":\"maslyanyy-filtr\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/maslyanyy-filtr\\/\",\"path\":\"zapchasti-dlya-t-o\\/filtra\\/maslyanyy-filtr\",\"categories\":[]},{\"id\":\"a5f2899f-cfca-4218-a347-3e7eef73a866\",\"parentId\":\"44ba3d8c-d4b3-4726-bc18-8e175ac55830\",\"name\":\"\\u0424\\u0438\\u043b\\u044c\\u0442\\u0440 \\u0410\\u041a\\u041f\\u041f\",\"alias\":\"filtr-akpp\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/filtr-akpp\\/\",\"path\":\"zapchasti-dlya-t-o\\/filtra\\/filtr-akpp\",\"categories\":[]},{\"id\":\"5e021759-fab2-4792-bd3f-d254cd39468a\",\"parentId\":\"44ba3d8c-d4b3-4726-bc18-8e175ac55830\",\"name\":\"\\u0412\\u043e\\u0437\\u0434\\u0443\\u0448\\u043d\\u044b\\u0439 \\u0444\\u0438\\u043b\\u044c\\u0442\\u0440\",\"alias\":\"vozdushnyy-filtr\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/vozdushnyy-filtr\\/\",\"path\":\"zapchasti-dlya-t-o\\/filtra\\/vozdushnyy-filtr\",\"categories\":[]},{\"id\":\"d6d718f7-3a81-465b-b738-d895575fa87d\",\"parentId\":\"44ba3d8c-d4b3-4726-bc18-8e175ac55830\",\"name\":\"\\u0424\\u0438\\u043b\\u044c\\u0442\\u0440 \\u0441\\u0430\\u043b\\u043e\\u043d\\u0430\",\"alias\":\"filtr-salona\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/filtr-salona\\/\",\"path\":\"zapchasti-dlya-t-o\\/filtra\\/filtr-salona\",\"categories\":[]},{\"id\":\"8a9599ee-6475-4481-9810-32eaf029f14c\",\"parentId\":\"44ba3d8c-d4b3-4726-bc18-8e175ac55830\",\"name\":\"\\u0422\\u043e\\u043f\\u043b\\u0438\\u0432\\u043d\\u044b\\u0439 \\u0444\\u0438\\u043b\\u044c\\u0442\\u0440\",\"alias\":\"toplivnyy-filtr\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/toplivnyy-filtr\\/\",\"path\":\"zapchasti-dlya-t-o\\/filtra\\/toplivnyy-filtr\",\"categories\":[]},{\"id\":\"b01d4583-4368-4b0f-a6f2-9056f4e80f77\",\"parentId\":\"44ba3d8c-d4b3-4726-bc18-8e175ac55830\",\"name\":\"\\u0413\\u0430\\u0437\\u043e\\u0432\\u044b\\u0435 \\u0444\\u0438\\u043b\\u044c\\u0442\\u0440\\u0430\",\"alias\":\"gazovye-filtra\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/gazovye-filtra\\/\",\"path\":\"zapchasti-dlya-t-o\\/filtra\\/gazovye-filtra\",\"categories\":[]}]},{\"id\":\"55846ca0-e772-49bc-9857-5008137c7441\",\"parentId\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u0414\\u0435\\u0442\\u0430\\u043b\\u0438 \\u0442\\u043e\\u0440\\u043c\\u043e\\u0437\\u043d\\u043e\\u0439 \\u0441\\u0438\\u0441\\u0442\\u0435\\u043c\\u044b\",\"alias\":\"detali-tormoznoy-sistemy\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/detali-tormoznoy-sistemy\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-tormoznoy-sistemy\",\"categories\":[{\"id\":\"19437527-ada9-4eef-bf39-acefa7b9cdaf\",\"parentId\":\"55846ca0-e772-49bc-9857-5008137c7441\",\"name\":\"\\u0422\\u043e\\u0440\\u043c\\u043e\\u0437\\u043d\\u0430\\u044f \\u0436\\u0438\\u0434\\u043a\\u043e\\u0441\\u0442\\u044c\",\"alias\":\"tormoznaya-zhidkost\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/tormoznaya-zhidkost\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-tormoznoy-sistemy\\/tormoznaya-zhidkost\",\"categories\":[]},{\"id\":\"41bf7981-f621-4b54-a794-cc2d2a901192\",\"parentId\":\"55846ca0-e772-49bc-9857-5008137c7441\",\"name\":\"\\u0411\\u0430\\u0440\\u0430\\u0431\\u0430\\u043d\\u043d\\u044b\\u0435 \\u0442\\u043e\\u0440\\u043c\\u043e\\u0437\\u043d\\u044b\\u0435 \\u043a\\u043e\\u043b\\u043e\\u0434\\u043a\\u0438\",\"alias\":\"barabannye-tormoznye-kolodki\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/barabannye-tormoznye-kolodki\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-tormoznoy-sistemy\\/barabannye-tormoznye-kolodki\",\"categories\":[]},{\"id\":\"5308af45-ba1d-4e5a-b82d-9e10bf16201c\",\"parentId\":\"55846ca0-e772-49bc-9857-5008137c7441\",\"name\":\"\\u041a\\u043e\\u043b\\u043e\\u0434\\u043a\\u0438 \\u0442\\u043e\\u0440\\u043c\\u043e\\u0437\\u043d\\u044b\\u0435\",\"alias\":\"kolodki-tormoznye\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/kolodki-tormoznye\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-tormoznoy-sistemy\\/kolodki-tormoznye\",\"categories\":[{\"id\":\"9bbe739a-5798-4a8c-b4f6-a22f66645833\",\"parentId\":\"5308af45-ba1d-4e5a-b82d-9e10bf16201c\",\"name\":\"\\u0422\\u043e\\u0440\\u043c\\u043e\\u0437\\u043d\\u044b\\u0435 \\u043a\\u043e\\u043b\\u043e\\u0434\\u043a\\u0438 \\u041e\\u043a\\u0442\\u0430\\u0432\\u0438\\u044f \\u04105\",\"alias\":\"tormoznye-kolodki-oktaviya-a5\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/tormoznye-kolodki-oktaviya-a5\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-tormoznoy-sistemy\\/kolodki-tormoznye\\/tormoznye-kolodki-oktaviya-a5\",\"categories\":[]}]},{\"id\":\"cf2e56eb-ef9a-4844-b501-c112389ba49a\",\"parentId\":\"55846ca0-e772-49bc-9857-5008137c7441\",\"name\":\"\\u041a\\u043e\\u043b\\u043e\\u0434\\u043a\\u0438 \\u0441\\u0442\\u043e\\u044f\\u043d\\u043e\\u0447\\u043d\\u043e\\u0433\\u043e \\u0442\\u043e\\u0440\\u043c\\u043e\\u0437\\u0430 (\\u0440\\u0443\\u0447\\u043d\\u0438\\u043a\\u0430)\",\"alias\":\"kolodki-stoyanochnogo-tormoza-ruchnika\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/kolodki-stoyanochnogo-tormoza-ruchnika\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-tormoznoy-sistemy\\/kolodki-stoyanochnogo-tormoza-ruchnika\",\"categories\":[]},{\"id\":\"a20ff2c8-3e6f-4824-98cf-b485cfec37d4\",\"parentId\":\"55846ca0-e772-49bc-9857-5008137c7441\",\"name\":\"\\u0422\\u043e\\u0440\\u043c\\u043e\\u0437\\u043d\\u044b\\u0435 \\u0434\\u0438\\u0441\\u043a\\u0438\",\"alias\":\"tormoznye-diski\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/tormoznye-diski\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-tormoznoy-sistemy\\/tormoznye-diski\",\"categories\":[]}]},{\"id\":\"7e23aa90-d4ce-4432-8a28-3351d0ce6aa1\",\"parentId\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u0410\\u043d\\u0442\\u0438\\u0444\\u0440\\u0438\\u0437\",\"alias\":\"antifriz\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/antifriz\\/\",\"path\":\"zapchasti-dlya-t-o\\/antifriz\",\"categories\":[{\"id\":\"01305d62-7727-4df4-ba9e-6a2365c0d64e\",\"parentId\":\"7e23aa90-d4ce-4432-8a28-3351d0ce6aa1\",\"name\":\"\\u0421\\u0438\\u043d\\u0438\\u0439\",\"alias\":\"siniy\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/siniy\\/\",\"path\":\"zapchasti-dlya-t-o\\/antifriz\\/siniy\",\"categories\":[]},{\"id\":\"2b8d49e3-f982-4355-abf9-797047952656\",\"parentId\":\"7e23aa90-d4ce-4432-8a28-3351d0ce6aa1\",\"name\":\"\\u0416\\u0435\\u043b\\u0442\\u044b\\u0439\",\"alias\":\"zheltyy\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zheltyy\\/\",\"path\":\"zapchasti-dlya-t-o\\/antifriz\\/zheltyy\",\"categories\":[]},{\"id\":\"657b4995-a27b-4219-ab84-50fc3a047e3a\",\"parentId\":\"7e23aa90-d4ce-4432-8a28-3351d0ce6aa1\",\"name\":\"\\u041a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0439\",\"alias\":\"krasnyy\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/krasnyy\\/\",\"path\":\"zapchasti-dlya-t-o\\/antifriz\\/krasnyy\",\"categories\":[]},{\"id\":\"97af7976-ddc9-4d85-8370-ae3532b81e8e\",\"parentId\":\"7e23aa90-d4ce-4432-8a28-3351d0ce6aa1\",\"name\":\"\\u0417\\u0435\\u043b\\u0435\\u043d\\u044b\\u0439\",\"alias\":\"zelenyy\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zelenyy\\/\",\"path\":\"zapchasti-dlya-t-o\\/antifriz\\/zelenyy\",\"categories\":[]},{\"id\":\"c2b92e66-e304-4215-bf45-fe41e14cefd0\",\"parentId\":\"7e23aa90-d4ce-4432-8a28-3351d0ce6aa1\",\"name\":\"\\u0414\\u0438\\u0441\\u0442\\u0438\\u043b\\u043b\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u043d\\u0430\\u044f \\u0432\\u043e\\u0434\\u0430\",\"alias\":\"distillirovannaya-voda\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/distillirovannaya-voda\\/\",\"path\":\"zapchasti-dlya-t-o\\/antifriz\\/distillirovannaya-voda\",\"categories\":[]},{\"id\":\"67b9ace3-29e9-4b0a-9f55-e5eb970c9c22\",\"parentId\":\"7e23aa90-d4ce-4432-8a28-3351d0ce6aa1\",\"name\":\"\\u0412\\u0441\\u0435 \\u0446\\u0432\\u0435\\u0442\\u0430\",\"alias\":\"vse-cveta\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/vse-cveta\\/\",\"path\":\"zapchasti-dlya-t-o\\/antifriz\\/vse-cveta\",\"categories\":[]}]},{\"id\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"parentId\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u041c\\u043e\\u0442\\u043e\\u0440\\u043d\\u043e\\u0435 \\u043c\\u0430\\u0441\\u043b\\u043e\",\"alias\":\"motornoe-maslo\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/motornoe-maslo\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\",\"categories\":[{\"id\":\"15ea03f4-6042-4da8-bc1a-8239c4068a26\",\"parentId\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"name\":\"5w30\",\"alias\":\"5w30\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/5w30\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\\/5w30\",\"categories\":[]},{\"id\":\"39f318b2-e89a-451d-9b28-e68cfaa0fcf7\",\"parentId\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"name\":\"0w20\",\"alias\":\"0w20\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/0w20\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\\/0w20\",\"categories\":[]},{\"id\":\"432afd5e-6701-4b54-bd9d-ecdf7e799c24\",\"parentId\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"name\":\"5w40\",\"alias\":\"5w40\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/5w40\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\\/5w40\",\"categories\":[]},{\"id\":\"65a2bf30-c10b-452a-9236-c4c2e6fa08f0\",\"parentId\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"name\":\"10w40\",\"alias\":\"10w40\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/10w40\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\\/10w40\",\"categories\":[]},{\"id\":\"a8d93639-d9f2-4303-9b31-5a788133b782\",\"parentId\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"name\":\"0w30\",\"alias\":\"0w30\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/0w30\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\\/0w30\",\"categories\":[]},{\"id\":\"c519f164-2b64-47c1-aeb4-2ba14484e388\",\"parentId\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"name\":\"0w40\",\"alias\":\"0w40\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/0w40\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\\/0w40\",\"categories\":[]},{\"id\":\"c6bfbb16-d1a4-46c8-b352-a8d961e6dede\",\"parentId\":\"9d05ec1a-54fc-4579-aaae-20bc5d9d0051\",\"name\":\"\\u0412\\u0441\\u0435 \\u0434\\u043e\\u0441\\u0442\\u0443\\u043f\\u043d\\u044b\\u0435\",\"alias\":\"vse-dostupnye\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/vse-dostupnye\\/\",\"path\":\"zapchasti-dlya-t-o\\/motornoe-maslo\\/vse-dostupnye\",\"categories\":[]}]},{\"id\":\"ecf797d8-ca75-445b-967f-5f8e55e43822\",\"parentId\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u0414\\u0435\\u0442\\u0430\\u043b\\u0438 \\u0441\\u0438\\u0441\\u0442\\u0435\\u043c\\u0430 \\u0437\\u0430\\u0436\\u0438\\u0433\\u0430\\u043d\\u0438\\u044f\",\"alias\":\"detali-sistema-zazhiganiya\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/detali-sistema-zazhiganiya\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-sistema-zazhiganiya\",\"categories\":[{\"id\":\"cda1b68c-73aa-4998-a151-385364bb93d5\",\"parentId\":\"ecf797d8-ca75-445b-967f-5f8e55e43822\",\"name\":\"\\u0421\\u0432\\u0435\\u0447\\u0438 \\u0437\\u0430\\u0436\\u0438\\u0433\\u0430\\u043d\\u0438\\u044f\",\"alias\":\"svechi-zazhiganiya\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/svechi-zazhiganiya\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-sistema-zazhiganiya\\/svechi-zazhiganiya\",\"categories\":[]},{\"id\":\"1116f448-3af5-4498-8ec3-1353a7d8880a\",\"parentId\":\"ecf797d8-ca75-445b-967f-5f8e55e43822\",\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u043e\\u0432\\u043e\\u043b\\u044c\\u0442\\u043d\\u044b\\u0435 \\u043f\\u0440\\u043e\\u0432\\u043e\\u0434\\u0430\",\"alias\":\"vysokovoltnye-provoda\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/vysokovoltnye-provoda\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-sistema-zazhiganiya\\/vysokovoltnye-provoda\",\"categories\":[]},{\"id\":\"292d54f2-1e74-4c30-8a96-dce30ca78450\",\"parentId\":\"ecf797d8-ca75-445b-967f-5f8e55e43822\",\"name\":\"\\u041a\\u0430\\u0442\\u0443\\u0448\\u043a\\u0438\",\"alias\":\"katushki\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/katushki\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-sistema-zazhiganiya\\/katushki\",\"categories\":[]},{\"id\":\"2b290dd0-c1bd-49ee-ace9-9b0a055b9b52\",\"parentId\":\"ecf797d8-ca75-445b-967f-5f8e55e43822\",\"name\":\"\\u0421\\u0432\\u0435\\u0447\\u0438 \\u043d\\u0430\\u043a\\u0430\\u043b\\u0430\",\"alias\":\"svechi-nakala\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/svechi-nakala\\/\",\"path\":\"zapchasti-dlya-t-o\\/detali-sistema-zazhiganiya\\/svechi-nakala\",\"categories\":[]}]},{\"id\":\"84b43c4c-bcdf-418f-aa66-a5b741d54dec\",\"parentId\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u041e\\u043c\\u044b\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\",\"alias\":\"omyvatel\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/omyvatel\\/\",\"path\":\"zapchasti-dlya-t-o\\/omyvatel\",\"categories\":[{\"id\":\"9963bd9a-5403-4468-aa54-83bc232e0d95\",\"parentId\":\"84b43c4c-bcdf-418f-aa66-a5b741d54dec\",\"name\":\"\\u041b\\u0435\\u0442\\u043d\\u0438\\u0439 \\u043e\\u043c\\u044b\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\",\"alias\":\"letniy-omyvatel\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/letniy-omyvatel\\/\",\"path\":\"zapchasti-dlya-t-o\\/omyvatel\\/letniy-omyvatel\",\"categories\":[]},{\"id\":\"9c114be9-25d4-44d1-8508-f745b91090e4\",\"parentId\":\"84b43c4c-bcdf-418f-aa66-a5b741d54dec\",\"name\":\"\\u0417\\u0438\\u043c\\u043d\\u0438\\u0439 \\u043e\\u043c\\u044b\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\",\"alias\":\"zimniy-omyvatel\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zimniy-omyvatel\\/\",\"path\":\"zapchasti-dlya-t-o\\/omyvatel\\/zimniy-omyvatel\",\"categories\":[]},{\"id\":\"01be88a2-2c79-4e5e-9f27-31fc466c89a7\",\"parentId\":\"84b43c4c-bcdf-418f-aa66-a5b741d54dec\",\"name\":\"\\u0410\\u043d\\u0442\\u0438\\u0434\\u043e\\u0436\\u0434\\u044c\",\"alias\":\"antidozhd\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/antidozhd\\/\",\"path\":\"zapchasti-dlya-t-o\\/omyvatel\\/antidozhd\",\"categories\":[]},{\"id\":\"3d67199b-1262-4d28-88e3-b9604500108a\",\"parentId\":\"84b43c4c-bcdf-418f-aa66-a5b741d54dec\",\"name\":\"\\u0410\\u043d\\u0442\\u0438\\u043b\\u0435\\u0434 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0435\\u043a\\u043b\\u0430\",\"alias\":\"antiled-dlya-stekla\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/antiled-dlya-stekla\\/\",\"path\":\"zapchasti-dlya-t-o\\/omyvatel\\/antiled-dlya-stekla\",\"categories\":[]},{\"id\":\"5784823a-3e3b-47db-a438-4f508497bf7c\",\"parentId\":\"84b43c4c-bcdf-418f-aa66-a5b741d54dec\",\"name\":\"\\u0414\\u0438\\u0441\\u0442\\u0438\\u043b\\u043b\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u043d\\u0430\\u044f \\u0432\\u043e\\u0434\\u0430\",\"alias\":\"distillirovannaya-voda-000000570\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/distillirovannaya-voda-000000570\\/\",\"path\":\"zapchasti-dlya-t-o\\/omyvatel\\/distillirovannaya-voda-000000570\",\"categories\":[]}]},{\"id\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"parentId\":\"64cc76fa-55c7-4210-95c3-55e15465958e\",\"name\":\"\\u0422\\u0440\\u0430\\u043d\\u0441\\u043c\\u0438\\u0441\\u0441\\u0438\\u043e\\u043d\\u043d\\u043e\\u0435 \\u043c\\u0430\\u0441\\u043b\\u043e\",\"alias\":\"transmissionnoe-maslo\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/transmissionnoe-maslo\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\",\"categories\":[{\"id\":\"12565bba-dd6e-4e43-9df1-2958bc33fdc3\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"CVT\",\"alias\":\"cvt\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/cvt\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/cvt\",\"categories\":[]},{\"id\":\"4107a06c-68eb-49c1-82e6-3bfd13be0d23\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"80w90\",\"alias\":\"80w90\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/80w90\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/80w90\",\"categories\":[]},{\"id\":\"59880034-5b4e-4878-8863-86986b079a0c\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"75w90\",\"alias\":\"75w90\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/75w90\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/75w90\",\"categories\":[]},{\"id\":\"5f0ba613-e8f4-47f0-b92e-1f4166de1bd4\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"85w140\",\"alias\":\"85w140\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/85w140\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/85w140\",\"categories\":[]},{\"id\":\"8f5ebf91-343f-4866-b557-34fa1a0c837e\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"DCT\",\"alias\":\"dct\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/dct\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/dct\",\"categories\":[]},{\"id\":\"9ab616b1-56b2-4547-8ed2-4b0a325ab59b\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"75w85\",\"alias\":\"75w85\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/75w85\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/75w85\",\"categories\":[]},{\"id\":\"cc141ac7-867b-4200-9869-cf01942bcef1\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"ATF\",\"alias\":\"atf\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/atf\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/atf\",\"categories\":[]},{\"id\":\"d511f7f0-a8da-4be8-ba50-8f7c85226880\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"75w140\",\"alias\":\"75w140\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/75w140\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/75w140\",\"categories\":[]},{\"id\":\"e8dbf284-6216-41fa-94f1-a950794a27b5\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"75w80\",\"alias\":\"75w80\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/75w80\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/75w80\",\"categories\":[]},{\"id\":\"993c655c-fde8-4fd1-a6a2-332ab2187441\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"\\u041c\\u0430\\u0441\\u043b\\u043e \\u0434\\u043b\\u044f \\u041c\\u041a\\u041f\\u041f\",\"alias\":\"maslo-dlya-mkpp\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/maslo-dlya-mkpp\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/maslo-dlya-mkpp\",\"categories\":[]},{\"id\":\"911a76dd-fd43-4b7a-ba92-fe51d770f567\",\"parentId\":\"fead3a30-935b-42b2-a62b-aae9c13c7210\",\"name\":\"\\u041c\\u0430\\u0441\\u043b\\u043e \\u0434\\u043b\\u044f \\u0410\\u041a\\u041f\\u041f\",\"alias\":\"maslo-dlya-akpp\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/maslo-dlya-akpp\\/\",\"path\":\"zapchasti-dlya-t-o\\/transmissionnoe-maslo\\/maslo-dlya-akpp\",\"categories\":[]}]}]},{\"id\":\"819e316e-4151-4c4f-af80-cadb30e846e7\",\"name\":\"\\u0416\\u0438\\u0434\\u043a\\u043e\\u0441\\u0442\\u0438 \\u0438 \\u0410\\u0432\\u0442\\u043e\\u0445\\u0438\\u043c\\u0438\\u044f\",\"alias\":\"zhidkosti-i-avtohimiya\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zhidkosti-i-avtohimiya\\/\",\"path\":\"zhidkosti-i-avtohimiya\",\"categories\":[{\"id\":\"8b506e49-70f0-45cb-bafe-5655ee9e0dd9\",\"parentId\":\"819e316e-4151-4c4f-af80-cadb30e846e7\",\"name\":\"\\u0410\\u043d\\u0442\\u0438\\u0444\\u0440\\u0438\\u0437\",\"alias\":\"antifriz-000000396\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/antifriz-000000396\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/antifriz-000000396\",\"categories\":[{\"id\":\"1018e564-7533-4365-835a-286a7ead4268\",\"parentId\":\"8b506e49-70f0-45cb-bafe-5655ee9e0dd9\",\"name\":\"\\u0421\\u0438\\u043d\\u0438\\u0439\",\"alias\":\"siniy-000000404\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/siniy-000000404\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/antifriz-000000396\\/siniy-000000404\",\"categories\":[]},{\"id\":\"b72cabc1-c498-43ab-82ba-40abb6071114\",\"parentId\":\"8b506e49-70f0-45cb-bafe-5655ee9e0dd9\",\"name\":\"\\u0416\\u0435\\u043b\\u0442\\u044b\\u0439\",\"alias\":\"zheltyy-000000401\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zheltyy-000000401\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/antifriz-000000396\\/zheltyy-000000401\",\"categories\":[]},{\"id\":\"d7bd279b-f40f-4e9d-a742-e85f7cf78f05\",\"parentId\":\"8b506e49-70f0-45cb-bafe-5655ee9e0dd9\",\"name\":\"\\u041a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0439\",\"alias\":\"krasnyy-000000403\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/krasnyy-000000403\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/antifriz-000000396\\/krasnyy-000000403\",\"categories\":[]},{\"id\":\"b2596f25-89cd-4e38-9769-9c283ae116e7\",\"parentId\":\"8b506e49-70f0-45cb-bafe-5655ee9e0dd9\",\"name\":\"\\u0417\\u0435\\u043b\\u0435\\u043d\\u044b\\u0439\",\"alias\":\"zelenyy-000000402\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zelenyy-000000402\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/antifriz-000000396\\/zelenyy-000000402\",\"categories\":[]},{\"id\":\"c6cf73db-6e76-4feb-ac2a-a8121a25f788\",\"parentId\":\"8b506e49-70f0-45cb-bafe-5655ee9e0dd9\",\"name\":\"\\u0414\\u0438\\u0441\\u0442\\u0438\\u043b\\u043b\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u043d\\u0430\\u044f \\u0432\\u043e\\u0434\\u0430\",\"alias\":\"distillirovannaya-voda-000000400\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/distillirovannaya-voda-000000400\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/antifriz-000000396\\/distillirovannaya-voda-000000400\",\"categories\":[]},{\"id\":\"33a39229-1c1f-4987-bedb-170ef7bb7ed2\",\"parentId\":\"8b506e49-70f0-45cb-bafe-5655ee9e0dd9\",\"name\":\"\\u0412\\u0441\\u0435 \\u0446\\u0432\\u0435\\u0442\\u0430\",\"alias\":\"vse-cveta-000000585\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/vse-cveta-000000585\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/antifriz-000000396\\/vse-cveta-000000585\",\"categories\":[]}]},{\"id\":\"fcf52c31-b766-479d-a49c-f4812079fabf\",\"parentId\":\"819e316e-4151-4c4f-af80-cadb30e846e7\",\"name\":\"\\u0410\\u0432\\u0442\\u043e\\u043c\\u0430\\u0441\\u043b\\u0430\",\"alias\":\"avtomasla\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/avtomasla\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/avtomasla\",\"categories\":[{\"id\":\"23b6f75a-f055-4597-9e26-60f87bc0a4bb\",\"parentId\":\"fcf52c31-b766-479d-a49c-f4812079fabf\",\"name\":\"\\u0422\\u043e\\u0440\\u043c\\u043e\\u0437\\u043d\\u0430\\u044f \\u0436\\u0438\\u0434\\u043a\\u043e\\u0441\\u0442\\u044c\",\"alias\":\"tormoznaya-zhidkost-000000577\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/tormoznaya-zhidkost-000000577\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/avtomasla\\/tormoznaya-zhidkost-000000577\",\"categories\":[]},{\"id\":\"08e9bb08-2e71-416c-8e83-d4e6b49898b2\",\"parentId\":\"fcf52c31-b766-479d-a49c-f4812079fabf\",\"name\":\"\\u041c\\u043e\\u0442\\u043e\\u0440\\u043d\\u043e\\u0435 \\u043c\\u0430\\u0441\\u043b\\u043e\",\"alias\":\"motornoe-maslo-000000373\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/motornoe-maslo-000000373\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/avtomasla\\/motornoe-maslo-000000373\",\"categories\":[]},{\"id\":\"7ccccec1-fc78-4acf-9102-62bbc07cc2c1\",\"parentId\":\"fcf52c31-b766-479d-a49c-f4812079fabf\",\"name\":\"\\u0422\\u0440\\u0430\\u043d\\u0441\\u043c\\u0438\\u0441\\u0441\\u0438\\u043e\\u043d\\u043d\\u043e\\u0435 \\u043c\\u0430\\u0441\\u043b\\u043e\",\"alias\":\"transmissionnoe-maslo-000000374\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/transmissionnoe-maslo-000000374\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/avtomasla\\/transmissionnoe-maslo-000000374\",\"categories\":[]},{\"id\":\"db8b8660-0668-4331-9d59-8568827c79a9\",\"parentId\":\"fcf52c31-b766-479d-a49c-f4812079fabf\",\"name\":\"\\u0416\\u0438\\u0434\\u043a\\u043e\\u0441\\u0442\\u0438 \\u0434\\u043b\\u044f \\u0433\\u0438\\u0434\\u0440\\u043e\\u0441\\u0438\\u0441\\u0442\\u0435\\u043c\",\"alias\":\"zhidkosti-dlya-gidrosistem\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zhidkosti-dlya-gidrosistem\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/avtomasla\\/zhidkosti-dlya-gidrosistem\",\"categories\":[]}]},{\"id\":\"639a87b3-8d1b-40e5-a26b-fd90a37c336c\",\"parentId\":\"819e316e-4151-4c4f-af80-cadb30e846e7\",\"name\":\"\\u041f\\u0440\\u0438\\u0441\\u0430\\u0434\\u043a\\u0438\",\"alias\":\"prisadki\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/prisadki\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/prisadki\",\"categories\":[{\"id\":\"5cf9b115-079b-416e-8093-c582f801ebd8\",\"parentId\":\"639a87b3-8d1b-40e5-a26b-fd90a37c336c\",\"name\":\"\\u041f\\u0440\\u0438\\u0441\\u0430\\u0434\\u043a\\u0438 \\u0432 \\u043c\\u0430\\u0441\\u043b\\u043e \\u043c\\u043e\\u0442\\u043e\\u0440\\u043d\\u043e\\u0435\",\"alias\":\"prisadki-v-maslo-motornoe\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/prisadki-v-maslo-motornoe\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/prisadki\\/prisadki-v-maslo-motornoe\",\"categories\":[]},{\"id\":\"732b0eb8-f794-4045-bdd0-91e802e8212b\",\"parentId\":\"639a87b3-8d1b-40e5-a26b-fd90a37c336c\",\"name\":\"\\u041f\\u0440\\u0438\\u0441\\u0430\\u0434\\u043a\\u0438 \\u0432 \\u043c\\u0430\\u0441\\u043b\\u043e \\u0442\\u0440\\u0430\\u043d\\u0441\\u043c\\u0438\\u0441\\u0441\\u0438\\u043e\\u043d\\u043d\\u043e\\u0435\",\"alias\":\"prisadki-v-maslo-transmissionnoe\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/prisadki-v-maslo-transmissionnoe\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/prisadki\\/prisadki-v-maslo-transmissionnoe\",\"categories\":[]},{\"id\":\"8ae48b71-8b30-4a8f-b78c-b08c7c7c1323\",\"parentId\":\"639a87b3-8d1b-40e5-a26b-fd90a37c336c\",\"name\":\"\\u041f\\u0440\\u0438\\u0441\\u0430\\u0434\\u043a\\u0438 \\u0432 \\u0433\\u0438\\u0434\\u0440\\u0430\\u0432\\u043b\\u0438\\u0447\\u0435\\u0441\\u043a\\u043e\\u0435 \\u043c\\u0430\\u0441\\u043b\\u043e\",\"alias\":\"prisadki-v-gidravlicheskoe-maslo\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/prisadki-v-gidravlicheskoe-maslo\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/prisadki\\/prisadki-v-gidravlicheskoe-maslo\",\"categories\":[]},{\"id\":\"0083ba1b-3ca0-4c64-bf22-b35adbe1ab39\",\"parentId\":\"639a87b3-8d1b-40e5-a26b-fd90a37c336c\",\"name\":\"\\u041f\\u0440\\u0438\\u0441\\u0430\\u0434\\u043a\\u0438 \\u0434\\u043b\\u044f \\u0442\\u043e\\u043f\\u043b\\u0438\\u0432\\u043d\\u043e\\u0439 \\u0441\\u0438\\u0441\\u0442\\u0435\\u043c\\u044b\",\"alias\":\"prisadki-dlya-toplivnoy-sistemy\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/prisadki-dlya-toplivnoy-sistemy\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/prisadki\\/prisadki-dlya-toplivnoy-sistemy\",\"categories\":[]},{\"id\":\"ccb93969-c086-49af-9c7d-aa8ce61c2a85\",\"parentId\":\"639a87b3-8d1b-40e5-a26b-fd90a37c336c\",\"name\":\"\\u0411\\u044b\\u0441\\u0442\\u0440\\u044b\\u0439 \\u0441\\u0442\\u0430\\u0440\\u0442\",\"alias\":\"bystryy-start\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/bystryy-start\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/prisadki\\/bystryy-start\",\"categories\":[]}]},{\"id\":\"7ceb36d2-75a4-44c4-ba21-77a8ad27c572\",\"parentId\":\"819e316e-4151-4c4f-af80-cadb30e846e7\",\"name\":\"\\u041e\\u043c\\u044b\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\",\"alias\":\"omyvatel-000000397\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/omyvatel-000000397\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/omyvatel-000000397\",\"categories\":[{\"id\":\"11b0f9b8-9d3d-4d20-9004-57cb1d6c00d3\",\"parentId\":\"7ceb36d2-75a4-44c4-ba21-77a8ad27c572\",\"name\":\"\\u041b\\u0435\\u0442\\u043d\\u0438\\u0439 \\u043e\\u043c\\u044b\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\",\"alias\":\"letniy-omyvatel-000000399\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/letniy-omyvatel-000000399\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/omyvatel-000000397\\/letniy-omyvatel-000000399\",\"categories\":[]},{\"id\":\"bc609ad3-d3bd-48d8-980a-fbc8694aaa27\",\"parentId\":\"7ceb36d2-75a4-44c4-ba21-77a8ad27c572\",\"name\":\"\\u0417\\u0438\\u043c\\u043d\\u0438\\u0439 \\u043e\\u043c\\u044b\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\",\"alias\":\"zimniy-omyvatel-000000398\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/zimniy-omyvatel-000000398\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/omyvatel-000000397\\/zimniy-omyvatel-000000398\",\"categories\":[]},{\"id\":\"ca9c38fd-c96c-4a8b-91e9-7d8438e05805\",\"parentId\":\"7ceb36d2-75a4-44c4-ba21-77a8ad27c572\",\"name\":\"\\u0410\\u043d\\u0442\\u0438\\u0434\\u043e\\u0436\\u0434\\u044c\",\"alias\":\"antidozhd-000000564\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/antidozhd-000000564\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/omyvatel-000000397\\/antidozhd-000000564\",\"categories\":[]},{\"id\":\"6f86cdd0-c4f2-4dc1-8ccc-9c3d3ca15557\",\"parentId\":\"7ceb36d2-75a4-44c4-ba21-77a8ad27c572\",\"name\":\"\\u0410\\u043d\\u0442\\u0438\\u043b\\u0435\\u0434 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0435\\u043a\\u043b\\u0430\",\"alias\":\"antiled-dlya-stekla-000000568\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/antiled-dlya-stekla-000000568\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/omyvatel-000000397\\/antiled-dlya-stekla-000000568\",\"categories\":[]},{\"id\":\"3428d4de-3d6a-4036-b4c4-6beaf52be482\",\"parentId\":\"7ceb36d2-75a4-44c4-ba21-77a8ad27c572\",\"name\":\"\\u0414\\u0438\\u0441\\u0442\\u0438\\u043b\\u043b\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u043d\\u0430\\u044f \\u0432\\u043e\\u0434\\u0430\",\"alias\":\"distillirovannaya-voda-000000569\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/distillirovannaya-voda-000000569\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/omyvatel-000000397\\/distillirovannaya-voda-000000569\",\"categories\":[]}]},{\"id\":\"d3656b7e-c7cd-426b-a2b3-9cb71a947dc9\",\"parentId\":\"819e316e-4151-4c4f-af80-cadb30e846e7\",\"name\":\"\\u041f\\u0440\\u043e\\u043c\\u044b\\u0432\\u043a\\u0438 \\u0438 \\u043e\\u0447\\u0438\\u0441\\u0442\\u0438\\u0442\\u0435\\u043b\\u0438\",\"alias\":\"promyvki-i-ochistiteli\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/promyvki-i-ochistiteli\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/promyvki-i-ochistiteli\",\"categories\":[{\"id\":\"2ae9578b-d35c-4317-89f1-8c3ef8f43bf7\",\"parentId\":\"d3656b7e-c7cd-426b-a2b3-9cb71a947dc9\",\"name\":\"\\u0423\\u043d\\u0438\\u0432\\u0435\\u0440\\u0441\\u0430\\u043b\\u044c\\u043d\\u044b\\u0435 \\u043e\\u0447\\u0438\\u0441\\u0442\\u0438\\u0442\\u0435\\u043b\\u0438\",\"alias\":\"universalnye-ochistiteli\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/universalnye-ochistiteli\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/promyvki-i-ochistiteli\\/universalnye-ochistiteli\",\"categories\":[]},{\"id\":\"e1f62bed-4bba-43ac-a30d-527c13532922\",\"parentId\":\"d3656b7e-c7cd-426b-a2b3-9cb71a947dc9\",\"name\":\"\\u041f\\u0440\\u043e\\u043c\\u044b\\u0432\\u043a\\u0430 \\u0434\\u0432\\u0438\\u0433\\u0430\\u0442\\u0435\\u043b\\u044f\",\"alias\":\"promyvka-dvigatelya\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/promyvka-dvigatelya\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/promyvki-i-ochistiteli\\/promyvka-dvigatelya\",\"categories\":[]},{\"id\":\"cbda6558-ed9e-4d7d-9b09-4e10fa986318\",\"parentId\":\"d3656b7e-c7cd-426b-a2b3-9cb71a947dc9\",\"name\":\"\\u041e\\u0447\\u0438\\u0441\\u0442\\u0438\\u0442\\u0435\\u043b\\u0438 \\u0442\\u043e\\u043f\\u043b\\u0438\\u0432\\u043d\\u043e\\u0439 \\u0441\\u0438\\u0441\\u0442\\u0435\\u043c\\u044b\",\"alias\":\"ochistiteli-toplivnoy-sistemy\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/ochistiteli-toplivnoy-sistemy\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/promyvki-i-ochistiteli\\/ochistiteli-toplivnoy-sistemy\",\"categories\":[]},{\"id\":\"f4b88ec7-421c-4fd3-b40d-227891cd6ca6\",\"parentId\":\"d3656b7e-c7cd-426b-a2b3-9cb71a947dc9\",\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u0441\\u0442\\u0432\\u0430 \\u0434\\u043b\\u044f \\u043e\\u0447\\u0438\\u0441\\u0442\\u043a\\u0438 \\u0442\\u043e\\u0440\\u043c\\u043e\\u0437\\u043e\\u0432\",\"alias\":\"sredstva-dlya-ochistki-tormozov\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/sredstva-dlya-ochistki-tormozov\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/promyvki-i-ochistiteli\\/sredstva-dlya-ochistki-tormozov\",\"categories\":[]},{\"id\":\"93a1b718-527c-4eb6-86de-77c04d7982d7\",\"parentId\":\"d3656b7e-c7cd-426b-a2b3-9cb71a947dc9\",\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u0441\\u0442\\u0432\\u0430 \\u0434\\u043b\\u044f \\u043e\\u0447\\u0438\\u0441\\u0442\\u043a\\u0438 \\u0441\\u0446\\u0435\\u043f\\u043b\\u0435\\u043d\\u0438\\u044f\",\"alias\":\"sredstva-dlya-ochistki-scepleniya\",\"url\":\"https:\\/\\/autonovad.ua\\/ru\\/categories\\/sredstva-dlya-ochistki-scepleniya\\/\",\"path\":\"zhidkosti-i-avtohimiya\\/promyvki-i-ochistiteli\\/sredstva-dlya-ochistki-scepleniya\",\"categories\":[]},{\"id\":\"6aa8286a-36aa-4ca3-9127-6cc4b449079d\",\"parentId\":\"d3656b7e-c7cd-426b-a2b3-9cb71a947dc9\",\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u0441\\u0442\\u0432\\u0430 \\u0434\\u043b\\u044f \\u0443\\u0434\\u0430\\u043...[TRUNCATED]",
+    "respHeaders": {
+      "cache-control": "no-cache, private",
+      "content-language": "ru",
+      "content-type": "application/json; charset=utf-8",
+      "link": "<http://catalogue-api.autonovad.ua/api/docs.jsonld>; rel=\"http://www.w3.org/ns/hydra/core#apiDocumentation\""
+    },
+    "status": 200,
+    "ts": 1781878487223,
+    "url": "https://catalogue-api.autonovad.ua/api/category-projections/tree"
+  },
+  {
+    "method": "GET",
+    "pageUrl": "https://autonovad.ua/ru/?srsltid=AfmBOopWhsIy70h4A8SL-WVlK4d9r5EkQktTVknqHZItzC1QTyDLxaBJ",
+    "reqBody": null,
+    "respBody": "{\"id\":\"6a5fadf8-5e11-4326-a300-527aea8e2d15\",\"quantity\":0,\"price\":{\"current\":0.0,\"currency\":\"UAH\"},\"items\":[]}",
+    "respHeaders": {
+      "cache-control": "no-cache, private",
+      "content-type": "application/json"
+    },
+    "status": 200,
+    "ts": 1781878487287,
+    "url": "https://checkout-ext.prod.cp.autonovad.ua/pub/v1/basket?basketId=6a5fadf8-5e11-4326-a300-527aea8e2d15"
+  },
+  {
+    "method": "GET",
+    "pageUrl": "https://autonovad.ua/ru/?srsltid=AfmBOopWhsIy70h4A8SL-WVlK4d9r5EkQktTVknqHZItzC1QTyDLxaBJ",
+    "reqBody": null,
+    "respBody": "{\"id\":48320,\"name\":\"\\u0410\\u0432\\u0442\\u043e\\u0441\\u0435\\u0440\\u0432\\u0456\\u0441 \\u0410\\u0432\\u0442\\u043e\\u043d\\u043e\\u0432\\u0430-\\u0414 \\u0422\\u041e\\u0412\",\"phone\":\"380682148662\",\"email\":\"call0682148662@gmail.com\",\"customer\":false,\"supplier\":false,\"retail\":false,\"operative\":false,\"blockCartOnOverdue\":false,\"showRetailPrice\":0,\"overdueDebt\":-268307.22,\"currency\":\"UAH\",\"currentAffiliateId\":\"31\",\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3ODE4Nzg0ODcsImV4cCI6MTgxMzQxNDQ4Nywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiNDgzMjAifQ.JfBHjAY8vhF1Mkl8plp0fADQ_t6qYb139StE8ypGZzvMY85ISDeYuuk9y1eybbglvXpQRvxM5X1KbuIfuaXCQl4FELhTGu0VWDj-w4RdRYvPJ5-1nRpwNVZMZk-SNw2O7JxfljwCpFe3NWj0qxIYoqDrQKBDYGVmLKmJlzLibS1GXCHq9hqKOjABRPi7SwZIy2Lh-Akfy_nA4iBVbHQAD6pMjwRfgxTnIoaU-V5yHH0A5O6e3A05mCkyRAeYUzwaqF6KOAywgvMuAeDuuGHuOP9TKTNU4A6Owwn7Q5vycppYOyKVIeQIS-koKL8CJu6Cd0Xt8qKbPdCr8y0pYadnKw\",\"regionName\":\"\\u041a\\u0438\\u0457\\u0432\\u0441\\u044c\\u043a\\u0430 \\u043e\\u0431\\u043b.\",\"promotions\":[],\"contacts\":[\"(044) 490 91 90\"],\"debt\":{\"totalDebt\":-1408917.16,\"overdueDebt\":-268307.22,\"daysOverdue\":30,\"currencyName\":\"\\u0433\\u0440\\u043d\",\"overdueTomorrow\":-291959.88,\"prepayment\":0.0,\"cashFlow\":\"868796.5\",\"returnsPercentage\":\"16.9\",\"updatedAt\":\"2026-06-19T12:15:44+00:00\"},\"manager\":{\"name\":\"\\u0417\\u0430\\u0445\\u0430\\u0440\\u0456\\u044f \\u0414\\u0435\\u043d\\u0438\\u0441 \\u0412\\u043b\\u0430\\u0434\\u0438\\u0441\\u043b\\u0430\\u0432\\u043e\\u0432\\u0438\\u0447\",\"email\":\"zdv@autonovad.ua\",\"phone\":\"\"},\"coordinator\":{\"name\":\"\\u0414\\u0440\\u0430\\u0447\\u0443\\u043a \\u041e\\u043b\\u0435\\u043a\\u0441\\u0430\\u043d\\u0434\\u0440 \\u041e\\u043b\\u0435\\u043a\\u0441\\u0430\\u043d\\u0434\\u0440\\u043e\\u0432\\u0438\\u0447\",\"email\":\"drachuk@autonovad.ua\",\"phone\":\"+380631331125\"},\"roles\":[\"ROLE_USER\"],\"userIdentifier\":\"48320\"}",
+    "respHeaders": {
+      "cache-control": "no-cache, private",
+      "content-language": "ru",
+      "content-type": "application/json; charset=utf-8",
+      "link": "<http://ucb-ext.prod.cp.autonovad.ua/api/docs.jsonld>; rel=\"http://www.w3.org/ns/hydra/core#apiDocumentation\""
+    },
+    "status": 200,
+    "ts": 1781878487366,
+    "url": "https://ucb-ext.prod.cp.autonovad.ua/api/profile"
+  },
+  {
+    "data": {
+      "data": {
+        "href": "https://autonovad.ua/index.html?id=27",
+        "readyState": "interactive"
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/content-boot",
+    "source": "bg",
+    "ts": 1781878491991
+  },
+  {
+    "data": {
+      "data": {
+        "active": true
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/instrument-history-clicks",
+    "source": "bg",
+    "ts": 1781878491994
+  },
+  {
+    "data": {
+      "data": {
+        "fragment": "index.html?id=27",
+        "href": "https://autonovad.ua/index.html?id=27",
+        "onHistory": true
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/process-history-entry",
+    "source": "bg",
+    "ts": 1781878491994
+  },
+  {
+    "data": {
+      "data": {
+        "rowCount": 440,
+        "sample": {
+          "date": "19/06/2026",
+          "number": "ЗК-12580223",
+          "sum": 3531.3
+        }
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/process-history-rows-parsed",
+    "source": "bg",
+    "ts": 1781878492021
+  },
+  {
+    "data": {
+      "rowCount": 440,
+      "sample": {
+        "date": "19/06/2026",
+        "itemCodes": [
+          "A1568200045",
+          "A4638200407"
+        ],
+        "itemsCount": 3,
+        "number": "ЗК-12580223",
+        "sum": 3531.3
+      }
+    },
+    "event": "claim-history-received",
+    "source": "bg",
+    "ts": 1781878492227
+  },
+  {
+    "data": {
+      "askedCount": 440,
+      "foundCount": 209
+    },
+    "event": "sb-lookup-ok",
+    "source": "bg",
+    "ts": 1781878492941
+  },
+  {
+    "data": {
+      "alreadyInOrders": 209,
+      "capDeferred": 0,
+      "rowsTotal": 440,
+      "sampleRow": {
+        "date": "19/06/2026",
+        "itemCodes": [
+          "A1568200045",
+          "A4638200407"
+        ],
+        "itemsCount": 3,
+        "number": "ЗК-12580223",
+        "sum": 3531.3
+      },
+      "todo": 22,
+      "todoAll": 22
+    },
+    "event": "claim-history-start",
+    "source": "bg",
+    "ts": 1781878492941
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": [
+          "PSZM000401"
+        ],
+        "p_items_count": 1,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12579117",
+        "p_sum": 2913.84
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493079
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": 1,
+        "p_order_date": "2026-06-08",
+        "p_order_number": "ЗК-12458065",
+        "p_sum": 1137.3
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493192
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": [
+          "WA9732",
+          "AF5216",
+          "WL7466"
+        ],
+        "p_items_count": 3,
+        "p_order_date": "2026-06-17",
+        "p_order_number": "ЗК-12551128",
+        "p_sum": 988.38
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493195
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": [
+          "XT5QMC"
+        ],
+        "p_items_count": 4,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12575002",
+        "p_sum": 2146.38
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493196
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": 2,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12578570",
+        "p_sum": 959.4
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493197
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": [
+          "1986S00731"
+        ],
+        "p_items_count": 1,
+        "p_order_date": "2026-06-08",
+        "p_order_number": "ЗК-12462708",
+        "p_sum": 5802.66
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493198
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": [
+          "CT1169",
+          "A234",
+          "CT1167K1"
+        ],
+        "p_items_count": 3,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12575362",
+        "p_sum": 7512.96
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493200
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": [
+          "N0138498"
+        ],
+        "p_items_count": 1,
+        "p_order_date": "2026-06-09",
+        "p_order_number": "ЗК-12471639",
+        "p_sum": 87.6
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493203
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": 2,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12576729",
+        "p_sum": 2007.54
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493212
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": 1,
+        "p_order_date": "2026-06-08",
+        "p_order_number": "ЗК-12458048",
+        "p_sum": 1137.3
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493214
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": 1,
+        "p_order_date": "2026-06-12",
+        "p_order_number": "ЗК-12514316",
+        "p_sum": 902.58
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493214
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12579117",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493274
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12575362",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493281
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12575002",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493286
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12578570",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493286
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-19",
+        "p_order_number": "ЗК-12576729",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493293
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-17",
+        "p_order_number": "ЗК-12551128",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493293
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-12",
+        "p_order_number": "ЗК-12514316",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493293
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-08",
+        "p_order_number": "ЗК-12462708",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493300
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-09",
+        "p_order_number": "ЗК-12471639",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493304
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-08",
+        "p_order_number": "ЗК-12458065",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493306
+  },
+  {
+    "data": {
+      "req": {
+        "p_client_code": "48320",
+        "p_item_codes": null,
+        "p_items_count": null,
+        "p_order_date": "2026-06-08",
+        "p_order_number": "ЗК-12458048",
+        "p_sum": null
+      },
+      "result": {
+        "claimId": null,
+        "matched": false,
+        "method": null,
+        "userColor": null,
+        "userName": null
+      }
+    },
+    "event": "sb-rpc-claim-ok",
+    "source": "bg",
+    "ts": 1781878493373
+  },
+  {
+    "data": {
+      "claimed": [],
+      "processed": 22
+    },
+    "event": "claim-history-done",
+    "source": "bg",
+    "ts": 1781878493373
+  },
+  {
+    "data": {
+      "data": {
+        "cls": "but",
+        "href": null,
+        "id": "showAll",
+        "inTableRow": false,
+        "path": "div.col-12 > div.row > div.col > div.container > form.form-inline > div.form-row > div.ml-2 > input#showAll",
+        "rowInnerText": null,
+        "tag": "INPUT",
+        "text": "",
+        "ts": 1781878499406
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/click-captured",
+    "source": "bg",
+    "ts": 1781878499410
+  },
+  {
+    "data": {
+      "data": {
+        "cls": "but",
+        "href": null,
+        "id": "hideAll",
+        "inTableRow": false,
+        "path": "div.col-12 > div.row > div.col > div.container > form.form-inline > div.form-row > div.ml-2 > input#hideAll",
+        "rowInnerText": null,
+        "tag": "INPUT",
+        "text": "",
+        "ts": 1781878502353
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/click-captured",
+    "source": "bg",
+    "ts": 1781878502355
+  },
+  {
+    "data": {
+      "data": {
+        "cls": "but",
+        "href": null,
+        "id": "showAll",
+        "inTableRow": false,
+        "path": "div.col-12 > div.row > div.col > div.container > form.form-inline > div.form-row > div.ml-2 > input#showAll",
+        "rowInnerText": null,
+        "tag": "INPUT",
+        "text": "",
+        "ts": 1781878507307
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/click-captured",
+    "source": "bg",
+    "ts": 1781878507310
+  },
+  {
+    "data": {
+      "data": {
+        "cls": "but",
+        "href": null,
+        "id": "hideAll",
+        "inTableRow": false,
+        "path": "div.col-12 > div.row > div.col > div.container > form.form-inline > div.form-row > div.ml-2 > input#hideAll",
+        "rowInnerText": null,
+        "tag": "INPUT",
+        "text": "",
+        "ts": 1781878508730
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/click-captured",
+    "source": "bg",
+    "ts": 1781878508732
+  },
+  {
+    "data": {
+      "data": {
+        "cls": "but",
+        "href": null,
+        "id": "showAll",
+        "inTableRow": false,
+        "path": "div.col-12 > div.row > div.col > div.container > form.form-inline > div.form-row > div.ml-2 > input#showAll",
+        "rowInnerText": null,
+        "tag": "INPUT",
+        "text": "",
+        "ts": 1781878510770
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/click-captured",
+    "source": "bg",
+    "ts": 1781878510772
+  },
+  {
+    "data": {
+      "data": {
+        "cls": "but",
+        "href": null,
+        "id": "hideAll",
+        "inTableRow": false,
+        "path": "div.col-12 > div.row > div.col > div.container > form.form-inline > div.form-row > div.ml-2 > input#hideAll",
+        "rowInnerText": null,
+        "tag": "INPUT",
+        "text": "",
+        "ts": 1781878512139
+      },
+      "url": "https://autonovad.ua/index.html?id=27"
+    },
+    "event": "content/click-captured",
+    "source": "bg",
+    "ts": 1781878512140
+  }
+]
