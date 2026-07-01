@@ -314,24 +314,69 @@
   }
 
   // ---------- Auto-expand orders on history page ----------
-  function autoExpandIfEnabled() {
-    chrome.storage.local.get(['autoExpandOrders'], function (obj) {
-      if (!obj || !obj.autoExpandOrders) return;
-      function tryClick() {
-        const btn = document.querySelector('input#showAll');
-        if (btn) {
-          btn.click();
-          clog('auto-expand-triggered', { id: btn.id, cls: btn.className });
+  // The site's #showAll button simply removes the `mfp-hide` class from every
+  // detail popup (div[id*='d_']). We use that as the success signal: after
+  // clicking we count `div[id^='d_']:not(.mfp-hide)`; if it's still 0 the
+  // handler wasn't ready yet, so we retry with backoff.
+  function countExpandedPopups() {
+    return document.querySelectorAll("div[id^='d_']:not(.mfp-hide)").length;
+  }
+
+  function clickShowAllWithRetry() {
+    // Already expanded (user did it manually, or a prior run) — nothing to do.
+    if (countExpandedPopups() > 0) {
+      clog('auto-expand-already-expanded', { count: countExpandedPopups() });
+      return;
+    }
+
+    const MAX_ATTEMPTS = 10;
+    let attempt = 0;
+
+    function run(delay) {
+      attempt++;
+      const btn = document.querySelector('input#showAll');
+      if (!btn) {
+        // Button not in the DOM yet — keep waiting until the last attempt.
+        if (attempt < MAX_ATTEMPTS) {
+          setTimeout(function () { run(delay * 1.6); }, delay);
         } else {
-          clog('auto-expand-missing-btn', { selector: 'input#showAll' });
+          clog('auto-expand-giveup', { reason: 'no-btn', attempts: attempt });
+          console.log('[ANO] auto-expand: #showAll not found after', attempt, 'attempts');
         }
+        return;
       }
-      // Give the page a moment to finish any JS initialization
-      if (document.readyState === 'complete') {
-        setTimeout(tryClick, 400);
-      } else {
-        window.addEventListener('load', function () { setTimeout(tryClick, 400); }, { once: true });
+
+      btn.click();
+      // The site's jQuery handler removes `mfp-hide` synchronously on click,
+      // but yield a paint cycle before checking so any deferred work settles.
+      requestAnimationFrame(function () {
+        const n = countExpandedPopups();
+        if (n > 0) {
+          clog('auto-expand-success', { count: n, attempts: attempt });
+          console.log('[ANO] auto-expand: ok on attempt', attempt, '(' + n + ' popups)');
+        } else if (attempt < MAX_ATTEMPTS) {
+          setTimeout(function () { run(delay * 1.6); }, delay); // backoff ~50→80→128→204…
+        } else {
+          clog('auto-expand-giveup', { reason: 'no-effect', attempts: attempt });
+          console.log('[ANO] auto-expand: gave up after', attempt, 'attempts');
+        }
+      });
+    }
+
+    run(50);
+  }
+
+  function autoExpandIfEnabled() {
+    chrome.storage.local.get(['autoExpand', 'autoExpandMode'], function (obj) {
+      let enabled = !!(obj && obj.autoExpand);
+      // Migrate the legacy three-way setting once: click/dom → on, none → off.
+      if (obj && obj.autoExpandMode !== undefined && obj.autoExpand === undefined) {
+        enabled = (obj.autoExpandMode === 'click' || obj.autoExpandMode === 'dom');
       }
+      chrome.storage.local.set({ autoExpand: enabled });
+      chrome.storage.local.remove('autoExpandMode');
+
+      if (enabled) clickShowAllWithRetry();
     });
   }
 

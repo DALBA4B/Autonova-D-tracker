@@ -451,15 +451,22 @@ $('version').addEventListener('click', function () {
   }
 });
 
-// ---------- Functions: auto-expand ----------
-function refreshAutoExpand() {
-  chrome.storage.local.get(['autoExpandOrders'], function (obj) {
-    if ($('auto-expand')) $('auto-expand').checked = !!(obj && obj.autoExpandOrders);
+// ---------- Functions: expand toggle ----------
+function refreshExpandToggle() {
+  chrome.storage.local.get(['autoExpand', 'autoExpandMode'], function (obj) {
+    let enabled = !!(obj && obj.autoExpand);
+    // Migrate the legacy three-way setting once: click/dom → on, none → off.
+    if (obj && obj.autoExpandMode !== undefined && obj.autoExpand === undefined) {
+      enabled = (obj.autoExpandMode === 'click' || obj.autoExpandMode === 'dom');
+    }
+    chrome.storage.local.set({ autoExpand: enabled });
+    chrome.storage.local.remove('autoExpandMode');
+    $('expand-toggle').checked = enabled;
   });
 }
 
-$('auto-expand').addEventListener('change', function () {
-  chrome.storage.local.set({ autoExpandOrders: $('auto-expand').checked });
+$('expand-toggle').addEventListener('change', function () {
+  chrome.storage.local.set({ autoExpand: $('expand-toggle').checked });
 });
 
 initTabs();
@@ -467,5 +474,5 @@ buildColorGrid();
 setActiveSwatch(DEFAULT_COLOR);
 refreshState();
 refreshLogCount();
-refreshAutoExpand();
+refreshExpandToggle();
 setupAdminMode();
