@@ -5,8 +5,11 @@
   if (window.__ANO_INJECTED__) return;
   window.__ANO_INJECTED__ = true;
 
-  const NS = 'ANO_EXT';
-  const ORDER_RE = /ЗК-\d+/;
+  // Read shared constants passed via data-* attributes on the <script> tag
+  // by content.js (config.js is not available in the page world).
+  var _script = document.currentScript || {};
+  var NS = _script.dataset && _script.dataset.ns || 'ANO_EXT';
+  var ORDER_RE = new RegExp((_script.dataset && _script.dataset.orderRe) || 'ЗК-\\d+');
   const ORDER_URL_FRAG = 'cp.autonovad.ua/api/v1/orders';
   const PROFILE_URL_FRAG = 'cp.autonovad.ua/api/profile';
   const BASKET_URL_FRAG = 'cp.autonovad.ua/pub/v1/basket';
@@ -174,10 +177,6 @@
     }
   }
 
-  function isInteresting(url) {
-    return !!url && urlMatchesDebug(url);
-  }
-
   // ---- Patch fetch ----
   const origFetch = window.fetch;
   if (typeof origFetch === 'function') {
@@ -193,7 +192,7 @@
       const p = origFetch.apply(this, arguments);
       p.then(function (resp) {
         try {
-          if (isInteresting(url)) {
+          if (urlMatchesDebug(url)) {
             const headers = {};
             try { resp.headers.forEach(function (v, k) { headers[k] = v; }); } catch (e) { /* noop */ }
             resp.clone().text().then(function (t) {
@@ -220,7 +219,7 @@
       let reqBody = null;
       if (typeof body === 'string') reqBody = body;
       else if (body != null) reqBody = '[non-string body]';
-      if (isInteresting(url)) {
+      if (urlMatchesDebug(url)) {
         this.addEventListener('load', function () {
           try {
             const hdrRaw = this.getAllResponseHeaders ? this.getAllResponseHeaders() : '';
@@ -245,6 +244,4 @@
     } catch (e) { /* noop */ }
     return origSend.apply(this, arguments);
   };
-
-  post('INJECTED', { ts: Date.now() });
 })();

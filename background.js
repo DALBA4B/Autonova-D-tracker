@@ -65,20 +65,6 @@ function sbHeaders(extra) {
   return h;
 }
 
-async function sbInsertOrder(row) {
-  const url = CFG.SUPABASE_URL + '/rest/v1/orders';
-  const resp = await fetch(url, {
-    method: 'POST',
-    headers: sbHeaders({ 'Prefer': 'resolution=ignore-duplicates,return=minimal' }),
-    body: JSON.stringify([row])
-  });
-  if (!resp.ok) {
-    const t = await resp.text().catch(() => '');
-    throw new Error('Supabase insert failed: ' + resp.status + ' ' + t);
-  }
-  return true;
-}
-
 function _sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 async function sbInsertClaimOnce(claim) {
@@ -494,7 +480,6 @@ async function _claimOrdersFromHistoryImpl(rows) {
   });
 
   // Build a single name map for the caller (existingMap + newly-claimed).
-  // Saves a follow-up LOOKUP_ORDERS round-trip from content.js.
   const nameMap = Object.assign({}, existingMap);
   for (const c of claimed) {
     if (c.number && c.userName) nameMap[c.number] = { name: c.userName, color: c.userColor || null };
@@ -581,14 +566,6 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
 
   if (msg.type === 'MANUAL_PUSH_LOGS') {
     uploadLogs().then(r => sendResponse(r)).catch(e => sendResponse({ ok: false, error: String(e) }));
-    return true; // async
-  }
-
-  if (msg.type === 'LOOKUP_ORDERS') {
-    const numbers = (msg.payload && msg.payload.numbers) || [];
-    sbLookupOrders(numbers)
-      .then(map => sendResponse({ ok: true, map: map }))
-      .catch(e => sendResponse({ ok: false, error: String(e) }));
     return true; // async
   }
 

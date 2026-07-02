@@ -15,10 +15,14 @@
   var _nameMap = null;
 
   // ---------- 1. Inject page-world script ----------
+  // Pass shared constants via data-* attributes: config.js is unavailable in
+  // the page world, so inject.js reads them from its own <script> tag.
   try {
     const s = document.createElement('script');
     s.src = chrome.runtime.getURL('inject.js');
     s.async = false;
+    s.dataset.ns = NS;
+    s.dataset.orderRe = CFG.ORDER_NUMBER_REGEX.source;
     (document.head || document.documentElement).appendChild(s);
     s.onload = function () { s.remove(); };
   } catch (e) {
@@ -397,7 +401,6 @@
             return;
           }
           // CLAIM_HISTORY returns a unified nameMap = existing-in-orders + newly-claimed.
-          // Saves a follow-up LOOKUP_ORDERS round-trip.
           if (!resp || !resp.ok || !resp.nameMap) return;
 
           const updated = Object.assign({}, cache);

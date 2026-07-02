@@ -11,6 +11,8 @@ Thumbs.db
 
 # Test / temporary files
 Історія замовлень.html
+глянь.json
+клики.json
 *.tmp
 
 # Packaged builds
