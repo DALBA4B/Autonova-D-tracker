@@ -469,10 +469,74 @@ $('expand-toggle').addEventListener('change', function () {
   chrome.storage.local.set({ autoExpand: $('expand-toggle').checked });
 });
 
+function refreshPickedFilter() {
+  chrome.storage.local.get(['hidePickedOrders'], function (obj) {
+    $('picked-toggle').checked = !!(obj && obj.hidePickedOrders);
+  });
+}
+
+$('picked-toggle').addEventListener('change', function () {
+  chrome.storage.local.set({ hidePickedOrders: $('picked-toggle').checked });
+});
+
+// ---------- Name filter toggle + dropdown ----------
+var nameFilterSelect = $('name-filter-select');
+
+function refreshNameFilter() {
+  chrome.storage.local.get(['filterByName', 'filterNameTarget', 'orderNameCache'], function (obj) {
+    // Toggle state
+    var enabled = !!(obj && obj.filterByName);
+    $('name-filter-toggle').checked = enabled;
+    nameFilterSelect.disabled = !enabled;
+
+    // Populate dropdown from cache
+    var cache = (obj && obj.orderNameCache) || {};
+    var names = [];
+    var seen = {};
+    for (var key in cache) {
+      var entry = cache[key];
+      if (entry && entry.name && !seen[entry.name]) {
+        seen[entry.name] = 1;
+        names.push({ name: entry.name, color: entry.color || null });
+      }
+    }
+    // Sort alphabetically
+    names.sort(function (a, b) { return a.name.localeCompare(b.name); });
+
+    nameFilterSelect.innerHTML = '<option value="">— оберіть —</option>';
+    names.forEach(function (n) {
+      var opt = document.createElement('option');
+      opt.value = n.name;
+      opt.textContent = n.name;
+      if (n.color) opt.style.color = n.color;
+      nameFilterSelect.appendChild(opt);
+    });
+
+    // Restore selected name
+    var target = (obj && obj.filterNameTarget) || '';
+    nameFilterSelect.value = target;
+  });
+}
+
+$('name-filter-toggle').addEventListener('change', function () {
+  var enabled = $('name-filter-toggle').checked;
+  nameFilterSelect.disabled = !enabled;
+  chrome.storage.local.set({
+    filterByName: enabled,
+    filterNameTarget: enabled ? nameFilterSelect.value : ''
+  });
+});
+
+nameFilterSelect.addEventListener('change', function () {
+  chrome.storage.local.set({ filterNameTarget: nameFilterSelect.value });
+});
+
 initTabs();
 buildColorGrid();
 setActiveSwatch(DEFAULT_COLOR);
 refreshState();
 refreshLogCount();
 refreshExpandToggle();
+refreshPickedFilter();
+refreshNameFilter();
 setupAdminMode();

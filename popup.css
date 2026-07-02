@@ -351,6 +351,9 @@ button.admin-download:disabled { background: #cbd5e1; cursor: default; }
   gap: 12px;
   margin-top: 4px;
 }
+.switch-row + .switch-row {
+  margin-top: 14px;
+}
 .switch-text {
   flex: 1;
 }
@@ -408,4 +411,34 @@ button.admin-download:disabled { background: #cbd5e1; cursor: default; }
 }
 .switch input:focus-visible + .slider {
   box-shadow: 0 0 0 3px rgba(44,123,229,.2);
+}
+
+/* Name filter dropdown */
+.name-filter-select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1f2e;
+  background: #fff;
+  border: 1px solid #d3d7de;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  appearance: auto;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.name-filter-select:disabled {
+  background: #f1f3f6;
+  color: #94a3b8;
+  cursor: default;
+}
+.name-filter-select:not(:disabled):focus {
+  border-color: #2c7be5;
+  box-shadow: 0 0 0 2px rgba(44,123,229,.15);
+}
+.name-filter-select .opt-colored {
+  font-weight: 600;
 }

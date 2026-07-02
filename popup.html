@@ -62,6 +62,29 @@
             <div class="switch-desc">Автоматично розгортає деталі всіх замовлень при відкритті сторінки історії.</div>
           </div>
         </div>
+        <div class="switch-row">
+          <label class="switch">
+            <input type="checkbox" id="picked-toggle">
+            <span class="slider"></span>
+          </label>
+          <div class="switch-text">
+            <div class="switch-title">Сховати забрані замовлення</div>
+            <div class="switch-desc">Ховає замовлення, у яких усі запчасті мають статус «ЗС».</div>
+          </div>
+        </div>
+        <div class="switch-row">
+          <label class="switch">
+            <input type="checkbox" id="name-filter-toggle">
+            <span class="slider"></span>
+          </label>
+          <div class="switch-text">
+            <div class="switch-title">Фільтр по замовнику</div>
+            <div class="switch-desc">Показувати замовлення лише обраного співробітника.</div>
+            <select id="name-filter-select" class="name-filter-select" disabled>
+              <option value="">— оберіть —</option>
+            </select>
+          </div>
+        </div>
       </div>
     </section>
 

@@ -10,6 +10,10 @@
   if (!CFG) { console.warn('[ANO] config missing'); return; }
   const NS = CFG.MSG_NS;
 
+  // In-memory name map populated during processHistoryPage (cache + Supabase).
+  // Used by the name filter to decide visibility without re-reading storage.
+  var _nameMap = null;
+
   // ---------- 1. Inject page-world script ----------
   try {
     const s = document.createElement('script');
@@ -174,9 +178,101 @@
       // Catalogue codes of items — used as primary disambiguator when sums collide.
       const itemCodes = collectItemCodesForOrder(tr);
 
-      out.push({ number, date, sum, itemsCount, itemCodes, targetSpan });
+      out.push({ number, date, sum, itemsCount, itemCodes, targetSpan, tr: tr });
     });
     return out;
+  }
+
+  // Status text of one item-row inside a detail popup. The last <td> holds the
+  // status, wrapped as <span><div title="...">ЗС</div></span>. We read the <div>
+  // text rather than the cell's textContent to skip the mobile-only "Статус"
+  // heading span. Returns null if the status cell can't be found.
+  function getItemStatus(itemTr) {
+    const tds = itemTr.querySelectorAll(':scope > td');
+    if (tds.length === 0) return null;
+    const statusTd = tds[tds.length - 1];
+    const div = statusTd.querySelector('div');
+    if (div) return (div.textContent || '').trim();
+    return (statusTd.textContent || '').trim() || null;
+  }
+
+  // True only if EVERY item in this order has status "ЗС". Returns false when
+  // there are no item rows or any row's status isn't ЗС — safer to keep the
+  // order visible than to hide one the user still needs.
+  function isOrderFullyPicked(headerTr) {
+    const rows = getItemRows(headerTr);
+    if (!rows || rows.length === 0) return false;
+    for (let i = 0; i < rows.length; i++) {
+      if (getItemStatus(rows[i]) !== 'ЗС') return false;
+    }
+    return true;
+  }
+
+  // ---------- Filter: hide fully-picked orders ----------
+  // An order is hidden only when all of its items are "ЗС". Toggling the setting
+  // off restores visibility, so it's safe to flip on the fly.
+  // Shared helper: hide / show all DOM elements that belong to one order row
+  // (the <tr> itself, <div id="head_N">, <div id="d_N">).
+  function setOrderVisible(tr, visible) {
+    if (!tr) return;
+    tr.style.display = visible ? '' : 'none';
+    var trigger = tr.querySelector('a[id^="but_d_"][href^="#"]');
+    var popupId = trigger ? (trigger.getAttribute('href') || '').slice(1) : null;
+    if (!popupId) return;
+    var headId = popupId.replace(/^d_(\d+)$/, 'head_$1');
+    var headEl = document.getElementById(headId);
+    var popupEl = document.getElementById(popupId);
+    if (headEl) headEl.style.display = visible ? '' : 'none';
+    if (popupEl) popupEl.style.display = visible ? '' : 'none';
+  }
+
+  // Read the cached name for a given order number. Returns null if unknown.
+  function getCachedName(orderNumber) {
+    // Synchronous lookup from the in-memory snapshot populated by processHistoryPage.
+    // If the badge hasn't been rendered yet the cache entry may not exist — that's OK,
+    // we treat it as "name unknown → don't hide".
+    var badge = null;
+    if (orderNumber && _nameMap) badge = _nameMap[orderNumber];
+    return badge ? (badge.name || null) : null;
+  }
+
+  // ---------- Combined visibility filter ----------
+  // Both conditions (picked + name) are checked in a single pass so they
+  // don't overwrite each other. An order is visible only if it passes ALL
+  // active filters.
+  function applyAllFilters() {
+    chrome.storage.local.get(['hidePickedOrders', 'filterByName', 'filterNameTarget'], function (obj) {
+      var hidePicked = !!(obj && obj.hidePickedOrders);
+      var filterName = !!(obj && obj.filterByName);
+      var nameTarget = (obj && obj.filterNameTarget) || '';
+      var rows = collectOrderRows();
+      var hiddenByPicked = 0;
+      var hiddenByName = 0;
+      rows.forEach(function (row) {
+        if (!row.tr) return;
+        // Picked filter: hide if ALL items are ЗС
+        if (hidePicked && isOrderFullyPicked(row.tr)) {
+          setOrderVisible(row.tr, false);
+          hiddenByPicked++;
+          return;
+        }
+        // Name filter: hide if name doesn't match
+        if (filterName && nameTarget) {
+          var name = getCachedName(row.number);
+          if (name !== nameTarget) {
+            setOrderVisible(row.tr, false);
+            hiddenByName++;
+            return;
+          }
+        }
+        // Passed all filters — show
+        setOrderVisible(row.tr, true);
+      });
+      clog('filters-applied', {
+        hidePicked: hidePicked, filterName: filterName, nameTarget: nameTarget,
+        total: rows.length, hiddenByPicked: hiddenByPicked, hiddenByName: hiddenByName
+      });
+    });
   }
 
   // Deterministic fallback color from a name (when DB has no color set).
@@ -262,6 +358,13 @@
 
     injectBadgeStyles();
     autoExpandIfEnabled();
+    // Picked filter doesn't depend on _nameMap, so run it now.
+    // Name filter will be re-run after _nameMap is populated (Step A + Step B).
+    applyAllFilters();
+
+    // In-memory name map for the name filter: { "ЗК-12345": { name, color } }.
+    // Populated first from cache (Step A), then updated from Supabase (Step B).
+    _nameMap = Object.create(null);
 
     // Step A: render from local cache instantly (no network).
     chrome.storage.local.get([CACHE_KEY], function (obj) {
@@ -272,10 +375,14 @@
         const e = cache[row.number];
         if (e && e.name && e.ts && (now - e.ts) < CACHE_TTL_MS) {
           renderBadge(row.targetSpan, e.name, e.color || null);
+          _nameMap[row.number] = { name: e.name, color: e.color || null };
           renderedFromCache++;
         }
       });
       if (renderedFromCache > 0) console.log('[ANO] rendered', renderedFromCache, 'badges from cache');
+
+      // Name filter depends on _nameMap — run all filters again now that cache is loaded.
+      applyAllFilters();
 
       // Step B: ask background to claim unattributed + refresh known names.
       const rowsPayload = rows.map(function (r) {
@@ -304,10 +411,14 @@
                 added++;
               }
               updated[row.number] = { name: entry.name, color: entry.color || null, ts: Date.now() };
+              _nameMap[row.number] = { name: entry.name, color: entry.color || null };
             }
           });
           chrome.storage.local.set({ [CACHE_KEY]: updated });
           if (added > 0) console.log('[ANO] rendered', added, 'new badges from Supabase');
+
+          // Re-run all filters now that _nameMap is fully populated.
+          applyAllFilters();
         }
       );
     });
@@ -379,6 +490,22 @@
       if (enabled) clickShowAllWithRetry();
     });
   }
+
+  // ---------- Live filter updates ----------
+  // React instantly when the user toggles a filter in the popup — no page reload.
+  // Intentionally does NOT react to autoExpand changes (that requires a reload).
+  var FILTER_KEYS = ['hidePickedOrders', 'filterByName', 'filterNameTarget'];
+
+  chrome.storage.onChanged.addListener(function (changes, areaName) {
+    if (areaName !== 'local') return;
+    var relevant = false;
+    for (var i = 0; i < FILTER_KEYS.length; i++) {
+      if (changes[FILTER_KEYS[i]]) { relevant = true; break; }
+    }
+    if (!relevant) return;
+    if (!isHistoryPage()) return;
+    applyAllFilters();
+  });
 
   // ---------- Boot ----------
   function boot() {
