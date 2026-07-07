@@ -317,13 +317,22 @@ async function flushOfflineClaims() {
 async function queueClaim(order) {
   const userName = await getUserName();
   const userColor = await getUserColor();
+  // Minimal identity for the log so a dropped order stays traceable even when we
+  // bail out before building the full claim object below.
+  const orderRef = {
+    orderUuid: order.orderUuid || null,
+    basketId: order.basketId || null,
+    totalSum: (typeof order.totalSum === 'number') ? order.totalSum : null
+  };
   if (!userName) {
     console.warn('[ANO bg] no user name, skip claim');
+    bgLog('queue-claim-skip-no-user-name', { order: orderRef });
     return { ok: false, reason: 'no_user_name' };
   }
   const clientCode = lastClientCode || await loadClientCodeFlag();
   if (clientCode && clientCode !== CFG.EXPECTED_CLIENT_CODE) {
     console.log('[ANO bg] client code mismatch, skip claim', clientCode);
+    bgLog('queue-claim-skip-client-mismatch', { order: orderRef, clientCode: clientCode, expected: CFG.EXPECTED_CLIENT_CODE });
     return { ok: false, reason: 'client_code_mismatch' };
   }
   if (!clientCode) {

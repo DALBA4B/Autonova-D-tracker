@@ -104,6 +104,9 @@
   // contains at least one digit, no whitespace, max 32 chars. Excludes obvious price/qty
   // tokens (no decimal commas/dots-only). Examples: 3315001, GV0310, 076510005, N91153201.
   const PART_CODE_RE = /^[A-Z0-9][A-Z0-9./-]{2,31}$/i;
+  // A price/amount token: digits (optionally with thousands spaces) ending in a
+  // decimal separator + 1-2 fraction digits. E.g. "13650.48", "4 793,64", "1267.5".
+  const PRICE_LIKE_RE = /^\d[\d\s]*[.,]\d{1,2}$/;
   function looksLikePartCode(s) {
     if (!s) return false;
     s = s.trim();
@@ -111,6 +114,20 @@
     if (!PART_CODE_RE.test(s)) return false;
     if (!/\d/.test(s)) return false;          // must have a digit
     if (/^[\d\s.,-]+$/.test(s)) return false; // pure number/price → not a code
+    return true;
+  }
+
+  // Relaxed check for a code taken from the product-link <a> in the code column.
+  // That cell is structurally the artikul, so pure-numeric codes are valid here
+  // (many real codes are all digits: 890173, 707919350, 77555610). We still reject
+  // price-like tokens as a safety net, though prices never live inside this <a>.
+  function looksLikePartCodeFromLink(s) {
+    if (!s) return false;
+    s = s.trim();
+    if (s.length < 3 || s.length > 32) return false;
+    if (!PART_CODE_RE.test(s)) return false;
+    if (!/\d/.test(s)) return false;          // must have a digit
+    if (PRICE_LIKE_RE.test(s)) return false;  // guard against a stray price
     return true;
   }
 
@@ -123,7 +140,7 @@
     const a = firstTd.querySelector('a');
     if (a) {
       const t = (a.textContent || '').trim();
-      if (looksLikePartCode(t)) return t;
+      if (looksLikePartCodeFromLink(t)) return t;
     }
     const spans = firstTd.querySelectorAll(':scope > span');
     for (const sp of spans) {
