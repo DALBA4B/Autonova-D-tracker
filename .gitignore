@@ -21,3 +21,7 @@ Thumbs.db
 # Logs (local)
 *.log
 logs/
+
+# Exported debug logs (downloaded from the extension / admin tab)
+autonova-debug-*.json
+autonova-log-*.json

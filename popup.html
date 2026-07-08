@@ -68,8 +68,13 @@
             <span class="slider"></span>
           </label>
           <div class="switch-text">
-            <div class="switch-title">Сховати забрані замовлення</div>
-            <div class="switch-desc">Ховає замовлення, у яких усі запчасті мають статус «ЗС».</div>
+            <div class="switch-title">Сховати деякі замовлення</div>
+            <div class="switch-desc">Ховає замовлення, у яких усі запчасті мають один з обраних статусів.</div>
+            <div id="status-filter" class="status-filter">
+              <label class="status-chip"><input type="checkbox" class="status-cb" value="ЗС"><span>ЗС</span></label>
+              <label class="status-chip"><input type="checkbox" class="status-cb" value="ЗО"><span>ЗО</span></label>
+              <label class="status-chip"><input type="checkbox" class="status-cb" value="ЗОП"><span>ЗОП</span></label>
+            </div>
           </div>
         </div>
         <div class="switch-row">

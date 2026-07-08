@@ -469,14 +469,46 @@ $('expand-toggle').addEventListener('change', function () {
   chrome.storage.local.set({ autoExpand: $('expand-toggle').checked });
 });
 
+var statusCheckboxes = document.querySelectorAll('.status-cb');
+
+// Enable/disable the status checkboxes to mirror the master toggle state.
+function setStatusCbEnabled(enabled) {
+  statusCheckboxes.forEach(function (cb) { cb.disabled = !enabled; });
+  $('status-filter').classList.toggle('disabled', !enabled);
+}
+
+// Collect the currently checked statuses into an array.
+function readCheckedStatuses() {
+  var out = [];
+  statusCheckboxes.forEach(function (cb) { if (cb.checked) out.push(cb.value); });
+  return out;
+}
+
 function refreshPickedFilter() {
-  chrome.storage.local.get(['hidePickedOrders'], function (obj) {
-    $('picked-toggle').checked = !!(obj && obj.hidePickedOrders);
+  chrome.storage.local.get(['hidePickedOrders', 'hideStatuses'], function (obj) {
+    var enabled = !!(obj && obj.hidePickedOrders);
+    // Default to ['ЗС'] for installs upgraded from before the setting existed.
+    var statuses = (obj && Array.isArray(obj.hideStatuses)) ? obj.hideStatuses : ['ЗС'];
+    $('picked-toggle').checked = enabled;
+    statusCheckboxes.forEach(function (cb) { cb.checked = statuses.indexOf(cb.value) >= 0; });
+    setStatusCbEnabled(enabled);
   });
 }
 
 $('picked-toggle').addEventListener('change', function () {
-  chrome.storage.local.set({ hidePickedOrders: $('picked-toggle').checked });
+  var enabled = $('picked-toggle').checked;
+  setStatusCbEnabled(enabled);
+  // Turning the master on with nothing checked would hide nothing — seed with ЗС.
+  if (enabled && readCheckedStatuses().length === 0) {
+    statusCheckboxes.forEach(function (cb) { if (cb.value === 'ЗС') cb.checked = true; });
+  }
+  chrome.storage.local.set({ hidePickedOrders: enabled, hideStatuses: readCheckedStatuses() });
+});
+
+statusCheckboxes.forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    chrome.storage.local.set({ hideStatuses: readCheckedStatuses() });
+  });
 });
 
 // ---------- Name filter toggle + dropdown ----------

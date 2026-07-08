@@ -24,6 +24,17 @@
     return false;
   }
 
+  // Endpoints whose response bodies we actually need for attribution debugging
+  // (order creation, basket totals/items, profile client-code). For every other
+  // matched URL we log only url/method/status metadata — the full bodies of
+  // catalogue/search/delivery calls are noise and used to bloat the log to ~10MB,
+  // hitting chrome.storage.local's quota.
+  function isKeyEndpoint(url) {
+    return url.indexOf(ORDER_URL_FRAG) >= 0 ||
+           url.indexOf(PROFILE_URL_FRAG) >= 0 ||
+           url.indexOf(BASKET_URL_FRAG) >= 0;
+  }
+
   // Cache of basket data by basketId so we have sum/items at the moment of POST /orders.
   const basketCache = {};
 
@@ -92,19 +103,26 @@
   }
 
   function handleResponseText(url, method, text, reqBody, status, respHeaders) {
-    // Always emit a debug capture for matching domains (truncate large bodies)
+    // Emit a debug capture for matching domains. Full bodies only for the key
+    // endpoints; everything else keeps just metadata (bodyOmitted flag makes the
+    // trimming explicit, so an omitted body isn't confused with an empty response).
     if (urlMatchesDebug(url)) {
       const trunc = (s) => (s && s.length > 30000) ? s.slice(0, 30000) + '...[TRUNCATED]' : s;
-      post('DEBUG_CAPTURE', {
+      const capture = {
         ts: Date.now(),
         url: url,
         method: method,
         status: status,
-        reqBody: trunc(reqBody || null),
-        respBody: trunc(text || null),
-        respHeaders: respHeaders || null,
         pageUrl: location.href
-      });
+      };
+      if (isKeyEndpoint(url)) {
+        capture.reqBody = trunc(reqBody || null);
+        capture.respBody = trunc(text || null);
+        capture.respHeaders = respHeaders || null;
+      } else {
+        capture.bodyOmitted = true;
+      }
+      post('DEBUG_CAPTURE', capture);
     }
     if (!text) return;
     if (url.indexOf(BASKET_URL_FRAG) >= 0 && method === 'GET') {

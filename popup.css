@@ -442,3 +442,39 @@ button.admin-download:disabled { background: #cbd5e1; cursor: default; }
 .name-filter-select .opt-colored {
   font-weight: 600;
 }
+
+/* Status checkboxes for the "hide picked" filter */
+.status-filter {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.status-filter.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 4px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1f2e;
+  background: #fff;
+  border: 1px solid #d3d7de;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+}
+.status-chip input {
+  margin: 0;
+  cursor: pointer;
+}
+.status-chip:has(input:checked) {
+  border-color: #2c7be5;
+  background: #eaf2fd;
+  color: #2c7be5;
+}

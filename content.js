@@ -217,14 +217,16 @@
     return (statusTd.textContent || '').trim() || null;
   }
 
-  // True only if EVERY item in this order has status "ЗС". Returns false when
-  // there are no item rows or any row's status isn't ЗС — safer to keep the
-  // order visible than to hide one the user still needs.
-  function isOrderFullyPicked(headerTr) {
+  // True only if EVERY item in this order has a status from `statusList`.
+  // Returns false when there are no item rows, the list is empty, or any row's
+  // status isn't in the list — safer to keep the order visible than to hide one
+  // the user still needs.
+  function isOrderFullyInStatuses(headerTr, statusList) {
+    if (!statusList || statusList.length === 0) return false;
     const rows = getItemRows(headerTr);
     if (!rows || rows.length === 0) return false;
     for (let i = 0; i < rows.length; i++) {
-      if (getItemStatus(rows[i]) !== 'ЗС') return false;
+      if (statusList.indexOf(getItemStatus(rows[i])) < 0) return false;
     }
     return true;
   }
@@ -262,8 +264,11 @@
   // don't overwrite each other. An order is visible only if it passes ALL
   // active filters.
   function applyAllFilters() {
-    chrome.storage.local.get(['hidePickedOrders', 'filterByName', 'filterNameTarget'], function (obj) {
+    chrome.storage.local.get(['hidePickedOrders', 'hideStatuses', 'filterByName', 'filterNameTarget'], function (obj) {
       var hidePicked = !!(obj && obj.hidePickedOrders);
+      // Which item statuses count as "picked". Defaults to ['ЗС'] for installs
+      // upgraded from before the setting existed.
+      var hideStatuses = (obj && Array.isArray(obj.hideStatuses)) ? obj.hideStatuses : ['ЗС'];
       var filterName = !!(obj && obj.filterByName);
       var nameTarget = (obj && obj.filterNameTarget) || '';
       var rows = collectOrderRows();
@@ -271,8 +276,8 @@
       var hiddenByName = 0;
       rows.forEach(function (row) {
         if (!row.tr) return;
-        // Picked filter: hide if ALL items are ЗС
-        if (hidePicked && isOrderFullyPicked(row.tr)) {
+        // Picked filter: hide if ALL items are in one of the selected statuses.
+        if (hidePicked && isOrderFullyInStatuses(row.tr, hideStatuses)) {
           setOrderVisible(row.tr, false);
           hiddenByPicked++;
           return;
@@ -290,7 +295,7 @@
         setOrderVisible(row.tr, true);
       });
       clog('filters-applied', {
-        hidePicked: hidePicked, filterName: filterName, nameTarget: nameTarget,
+        hidePicked: hidePicked, hideStatuses: hideStatuses, filterName: filterName, nameTarget: nameTarget,
         total: rows.length, hiddenByPicked: hiddenByPicked, hiddenByName: hiddenByName
       });
     });
@@ -362,6 +367,304 @@
   const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
   // Stamp: { number: { name, ts } } stored under CACHE_KEY.
 
+  // ---------- Floating control panel (history page) ----------
+  // A fixed panel pinned to the right edge with the same filters as the popup's
+  // "Функції" tab: hide-picked (+ status chips) and name filter. It reads/writes
+  // the SAME chrome.storage keys as the popup, so the two stay in sync live via
+  // the storage.onChanged listener below — no extra messaging needed.
+  const PANEL_ID = 'ano-control-panel';
+  const PANEL_STATUS_VALUES = ['ЗС', 'ЗО', 'ЗОП'];
+
+  function injectPanelStyles() {
+    if (document.getElementById('ano-panel-style')) return;
+    const style = document.createElement('style');
+    style.id = 'ano-panel-style';
+    style.textContent = `
+      #${PANEL_ID} {
+        position: fixed; top: 90px;
+        z-index: 2147483000; box-sizing: border-box;
+        background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+        box-shadow: 0 4px 18px rgba(0,0,0,.14);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 12px; color: #1e293b;
+        user-select: none; -webkit-user-select: none;
+      }
+      #${PANEL_ID} * { box-sizing: border-box; }
+      #${PANEL_ID} .ano-p-head {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 6px; padding: 6px 8px;
+      }
+      #${PANEL_ID} .ano-p-title {
+        font-weight: 700; font-size: 10px; letter-spacing: .04em;
+        text-transform: uppercase; color: #64748b; white-space: nowrap;
+        overflow: hidden; text-overflow: ellipsis;
+      }
+      #${PANEL_ID} .ano-p-toggle {
+        flex: none; border: none; background: #f1f5f9; border-radius: 6px;
+        width: 20px; height: 20px; line-height: 18px; text-align: center;
+        cursor: pointer; color: #475569; font-size: 14px; padding: 0;
+      }
+      #${PANEL_ID} .ano-p-toggle:hover { background: #e2e8f0; }
+      #${PANEL_ID} .ano-p-body { padding: 0 8px 8px; }
+      #${PANEL_ID} .ano-p-section { margin-bottom: 9px; }
+      #${PANEL_ID} .ano-p-section:last-child { margin-bottom: 0; }
+      #${PANEL_ID} .ano-p-row {
+        display: flex; align-items: center; gap: 7px; font-weight: 600; cursor: pointer;
+        line-height: 1.25;
+      }
+      #${PANEL_ID} .ano-p-row input { cursor: pointer; margin: 0; flex: none; }
+      #${PANEL_ID} .ano-p-chips {
+        display: flex; gap: 5px; flex-wrap: wrap; margin: 6px 0 0 22px;
+      }
+      #${PANEL_ID} .ano-p-chips.disabled { opacity: .4; pointer-events: none; }
+      #${PANEL_ID} .ano-p-chip {
+        display: inline-flex; align-items: center; gap: 3px;
+        background: #f1f5f9; border-radius: 7px; padding: 2px 6px;
+        font-size: 11px; font-weight: 600; cursor: pointer;
+      }
+      #${PANEL_ID} .ano-p-chip input { margin: 0; cursor: pointer; }
+      #${PANEL_ID} select {
+        width: 100%; margin-top: 6px; padding: 4px 5px;
+        border: 1px solid #cbd5e1; border-radius: 7px;
+        font-size: 12px; background: #fff; color: #1e293b;
+      }
+      #${PANEL_ID} select:disabled { opacity: .5; }
+      /* Collapsed: hide title + body, leaving only the toggle as a small tab. */
+      #${PANEL_ID}.ano-collapsed { width: auto !important; }
+      #${PANEL_ID}.ano-collapsed .ano-p-title,
+      #${PANEL_ID}.ano-collapsed .ano-p-body { display: none; }
+      #${PANEL_ID}.ano-collapsed .ano-p-head { padding: 5px; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Read the checked status chips inside the panel.
+  function readPanelStatuses(panel) {
+    const out = [];
+    panel.querySelectorAll('.ano-p-status').forEach(function (cb) {
+      if (cb.checked) out.push(cb.value);
+    });
+    return out;
+  }
+
+  // Reflect current storage state into the panel UI (used on build and whenever
+  // the popup changes a key). Setting .checked programmatically does NOT fire
+  // 'change', so this never loops back into a storage write.
+  function syncPanelFromStorage() {
+    const panel = document.getElementById(PANEL_ID);
+    if (!panel) return;
+    chrome.storage.local.get(['hidePickedOrders', 'hideStatuses', 'filterByName', 'filterNameTarget'], function (obj) {
+      const picked = !!(obj && obj.hidePickedOrders);
+      const statuses = (obj && Array.isArray(obj.hideStatuses)) ? obj.hideStatuses : ['ЗС'];
+      const filterName = !!(obj && obj.filterByName);
+      const target = (obj && obj.filterNameTarget) || '';
+
+      panel.querySelector('#ano-p-picked').checked = picked;
+      panel.querySelector('#ano-p-chips').classList.toggle('disabled', !picked);
+      panel.querySelectorAll('.ano-p-status').forEach(function (cb) {
+        cb.checked = statuses.indexOf(cb.value) >= 0;
+      });
+
+      const nameSel = panel.querySelector('#ano-p-name-select');
+      panel.querySelector('#ano-p-namefilter').checked = filterName;
+      nameSel.disabled = !filterName;
+      nameSel.value = target;
+    });
+  }
+
+  // Fill the name dropdown from the local name cache (same source the popup uses),
+  // preserving the currently-selected target.
+  function populatePanelNames() {
+    const panel = document.getElementById(PANEL_ID);
+    if (!panel) return;
+    const nameSel = panel.querySelector('#ano-p-name-select');
+    chrome.storage.local.get([CACHE_KEY, 'filterNameTarget'], function (obj) {
+      const cache = (obj && obj[CACHE_KEY]) || {};
+      const names = [];
+      const seen = Object.create(null);
+      for (const key in cache) {
+        const e = cache[key];
+        if (e && e.name && !seen[e.name]) { seen[e.name] = 1; names.push({ name: e.name, color: e.color || null }); }
+      }
+      names.sort(function (a, b) { return a.name.localeCompare(b.name); });
+
+      const target = (obj && obj.filterNameTarget) || '';
+      nameSel.innerHTML = '<option value="">— оберіть —</option>';
+      names.forEach(function (n) {
+        const opt = document.createElement('option');
+        opt.value = n.name;
+        opt.textContent = n.name;
+        if (n.color) opt.style.color = n.color;
+        nameSel.appendChild(opt);
+      });
+      nameSel.value = target;
+    });
+  }
+
+  // Adaptive placement: find the empty gutter beside the orders table and park
+  // the panel there so it never overlaps content. Picks the wider gutter (ties
+  // go left), fits the panel width to it, and pins to the viewport edge if the
+  // gutter is too narrow. Recomputed on load, resize and collapse/expand.
+  const PANEL_MIN_W = 150;   // below this the panel would be unusable → pin to edge
+  const PANEL_MAX_W = 230;   // never grow wider than this even in a huge gutter
+  const PANEL_GAP = 10;      // breathing room from the table / viewport edge
+
+  function findOrdersTableRect() {
+    // `tr.table-item` matches BOTH top-level order rows AND item rows inside the
+    // detail popups (table.items-list tr.table-item). The popup tables are narrow
+    // and centered, so anchoring on the first match can place the panel in the
+    // middle. Instead scan all tables holding such rows and pick the WIDEST one —
+    // that's the full-width orders table.
+    const rows = document.querySelectorAll('tr.table-item');
+    let best = null;
+    const seen = new Set();
+    for (let i = 0; i < rows.length; i++) {
+      const t = rows[i].closest('table');
+      if (!t || seen.has(t)) continue;
+      seen.add(t);
+      const r = t.getBoundingClientRect();
+      // Skip hidden tables (closed detail popups report 0 size). Among the visible
+      // ones the widest is the full-width orders table — narrow/centered popups
+      // never win, so we don't need fragile id/class exclusions.
+      if (!r.width || !r.height) continue;
+      if (!best || r.width > best.width) best = r;
+    }
+    return best;
+  }
+
+  function positionPanel() {
+    const panel = document.getElementById(PANEL_ID);
+    if (!panel) return;
+    const vw = document.documentElement.clientWidth;
+    const rect = findOrdersTableRect();
+
+    // Collapsed panel is tiny — just pin it to the right edge, no measuring.
+    if (panel.classList.contains('ano-collapsed')) {
+      panel.style.width = 'auto';
+      panel.style.right = PANEL_GAP + 'px';
+      panel.style.left = 'auto';
+      return;
+    }
+
+    // Always dock to the RIGHT edge (top-right). Width fits the free space beside
+    // the table: capped at PANEL_MAX_W, and never wider than the gutter minus the
+    // gap — so the panel can NEVER overlap the "Сума" column. On a genuinely tiny
+    // gutter it just gets narrow (floored at PANEL_MIN_W for readability).
+    panel.style.left = 'auto';
+    panel.style.right = PANEL_GAP + 'px';
+    const rightGutter = rect ? (vw - rect.right) : vw;
+    let width = Math.min(PANEL_MAX_W, rightGutter - PANEL_GAP * 2);
+    if (width < PANEL_MIN_W) width = PANEL_MIN_W;
+    panel.style.width = width + 'px';
+  }
+
+  // Reposition on viewport changes (debounced via rAF to avoid thrashing).
+  var _posRaf = 0;
+  function schedulePosition() {
+    if (_posRaf) return;
+    _posRaf = requestAnimationFrame(function () { _posRaf = 0; positionPanel(); });
+  }
+
+  // Build the panel once and wire its controls to storage.
+  function buildControlPanel() {
+    if (document.getElementById(PANEL_ID)) return;
+    if (!document.body) return;
+    injectPanelStyles();
+
+    const chipsHtml = PANEL_STATUS_VALUES.map(function (s) {
+      return '<label class="ano-p-chip"><input type="checkbox" class="ano-p-status" value="' + s + '">' + s + '</label>';
+    }).join('');
+
+    const panel = document.createElement('div');
+    panel.id = PANEL_ID;
+    panel.innerHTML =
+      '<div class="ano-p-head">' +
+        '<span class="ano-p-title">Autonova · фільтри</span>' +
+        '<button class="ano-p-toggle" id="ano-p-toggle" title="Згорнути/розгорнути">–</button>' +
+      '</div>' +
+      '<div class="ano-p-body">' +
+        '<div class="ano-p-section">' +
+          '<label class="ano-p-row"><input type="checkbox" id="ano-p-picked">Сховати замовлення</label>' +
+          '<div class="ano-p-chips" id="ano-p-chips">' + chipsHtml + '</div>' +
+        '</div>' +
+        '<div class="ano-p-section">' +
+          '<label class="ano-p-row"><input type="checkbox" id="ano-p-namefilter">Фільтр по замовнику</label>' +
+          '<select id="ano-p-name-select" disabled><option value="">— оберіть —</option></select>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(panel);
+
+    const pickedCb = panel.querySelector('#ano-p-picked');
+    const nameCb = panel.querySelector('#ano-p-namefilter');
+    const nameSel = panel.querySelector('#ano-p-name-select');
+    const toggleBtn = panel.querySelector('#ano-p-toggle');
+
+    // Collapse / expand, persisted so it stays the user's choice across reloads.
+    // Reposition on the NEXT frame (via schedulePosition), not synchronously —
+    // right after toggling the class the browser hasn't reflowed the panel yet,
+    // so an immediate measure reads stale geometry and mis-places the panel.
+    function applyCollapsed(collapsed) {
+      panel.classList.toggle('ano-collapsed', collapsed);
+      toggleBtn.textContent = collapsed ? '☰' : '–';
+      schedulePosition();
+    }
+    toggleBtn.addEventListener('click', function () {
+      const nowCollapsed = !panel.classList.contains('ano-collapsed');
+      chrome.storage.local.set({ panelCollapsed: nowCollapsed });
+      applyCollapsed(nowCollapsed);
+    });
+    chrome.storage.local.get(['panelCollapsed'], function (obj) {
+      applyCollapsed(!!(obj && obj.panelCollapsed));
+    });
+
+    pickedCb.addEventListener('change', function () {
+      const enabled = pickedCb.checked;
+      // Enabling with nothing checked would hide nothing — seed with ЗС.
+      if (enabled && readPanelStatuses(panel).length === 0) {
+        panel.querySelectorAll('.ano-p-status').forEach(function (cb) {
+          if (cb.value === 'ЗС') cb.checked = true;
+        });
+      }
+      chrome.storage.local.set({ hidePickedOrders: enabled, hideStatuses: readPanelStatuses(panel) });
+    });
+
+    panel.querySelectorAll('.ano-p-status').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        chrome.storage.local.set({ hideStatuses: readPanelStatuses(panel) });
+      });
+    });
+
+    nameCb.addEventListener('change', function () {
+      const enabled = nameCb.checked;
+      chrome.storage.local.set({
+        filterByName: enabled,
+        filterNameTarget: enabled ? nameSel.value : ''
+      });
+    });
+
+    nameSel.addEventListener('change', function () {
+      chrome.storage.local.set({ filterNameTarget: nameSel.value });
+    });
+
+    syncPanelFromStorage();
+    populatePanelNames();
+
+    // Initial placement + keep it correct as the window resizes. positionPanel is
+    // also called by applyCollapsed (fired right after this by the collapse-state
+    // loader above).
+    positionPanel();
+    // Recompute ONLY on genuine viewport changes and once the page has settled —
+    // NOT on content reflow. Tying placement to reflow (e.g. a ResizeObserver) made
+    // the panel resize every time filters hid/showed orders (scrollbar appears →
+    // clientWidth changes), so its shape jittered on each toggle. The site lays out
+    // the history table slightly after our first measure, so we re-place on `load`
+    // and via two short timeouts to catch that initial settle, then stay static.
+    window.addEventListener('resize', schedulePosition);
+    window.addEventListener('load', schedulePosition);
+    setTimeout(schedulePosition, 400);
+    setTimeout(schedulePosition, 1200);
+  }
+
   function processHistoryPage() {
     const onHistory = isHistoryPage();
     clog('process-history-entry', { onHistory: onHistory, href: location.href, fragment: CFG.HISTORY_URL_FRAGMENT });
@@ -378,6 +681,7 @@
     console.log('[ANO] history rows parsed:', rows.length);
 
     injectBadgeStyles();
+    buildControlPanel();
     autoExpandIfEnabled();
     // Picked filter doesn't depend on _nameMap, so run it now.
     // Name filter will be re-run after _nameMap is populated (Step A + Step B).
@@ -404,6 +708,7 @@
 
       // Name filter depends on _nameMap — run all filters again now that cache is loaded.
       applyAllFilters();
+      populatePanelNames();
 
       // Step B: ask background to claim unattributed + refresh known names.
       const rowsPayload = rows.map(function (r) {
@@ -439,6 +744,7 @@
 
           // Re-run all filters now that _nameMap is fully populated.
           applyAllFilters();
+          populatePanelNames();
         }
       );
     });
@@ -514,17 +820,22 @@
   // ---------- Live filter updates ----------
   // React instantly when the user toggles a filter in the popup — no page reload.
   // Intentionally does NOT react to autoExpand changes (that requires a reload).
-  var FILTER_KEYS = ['hidePickedOrders', 'filterByName', 'filterNameTarget'];
+  var FILTER_KEYS = ['hidePickedOrders', 'hideStatuses', 'filterByName', 'filterNameTarget'];
 
   chrome.storage.onChanged.addListener(function (changes, areaName) {
     if (areaName !== 'local') return;
+    if (!isHistoryPage()) return;
     var relevant = false;
     for (var i = 0; i < FILTER_KEYS.length; i++) {
       if (changes[FILTER_KEYS[i]]) { relevant = true; break; }
     }
-    if (!relevant) return;
-    if (!isHistoryPage()) return;
-    applyAllFilters();
+    if (relevant) {
+      applyAllFilters();
+      // Keep the on-page panel in step with changes made from the popup.
+      syncPanelFromStorage();
+    }
+    // Refresh the panel's name dropdown when the name cache grows.
+    if (changes[CACHE_KEY]) populatePanelNames();
   });
 
   // ---------- Boot ----------
