@@ -439,9 +439,6 @@ button.admin-download:disabled { background: #cbd5e1; cursor: default; }
   border-color: #2c7be5;
   box-shadow: 0 0 0 2px rgba(44,123,229,.15);
 }
-.name-filter-select .opt-colored {
-  font-weight: 600;
-}
 
 /* Status checkboxes for the "hide picked" filter */
 .status-filter {
