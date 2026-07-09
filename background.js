@@ -13,11 +13,24 @@ let lastClientCode = null;
 // concurrent writers overwrite each other and we lose ~half the entries).
 const LOG_RETENTION_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 const LOG_HARD_CAP = 10000;                        // safety ceiling per write
+// chrome.storage.local's quota is 10MB total for the WHOLE extension (settings,
+// name cache, offline queue — everything shares it, not just the log). Age/count
+// trimming alone let a busy install's log balloon to ~10MB (many small entries,
+// each individually "fine"), silently eating all remaining quota — after that,
+// any chrome.storage.local.set() for filter settings fails with QUOTA_BYTES
+// exceeded and gets swallowed (no lastError check), so toggles stop persisting.
+// Capping by serialized byte size closes that regardless of entry count/shape.
+const LOG_MAX_BYTES = 3 * 1024 * 1024;             // ~3MB — large margin under the 10MB quota
 let _logChain = Promise.resolve();
 function pruneLog(log) {
   const cutoff = Date.now() - LOG_RETENTION_MS;
-  const fresh = log.filter(e => e && typeof e.ts === 'number' && e.ts >= cutoff);
-  return fresh.length > LOG_HARD_CAP ? fresh.slice(-LOG_HARD_CAP) : fresh;
+  let fresh = log.filter(e => e && typeof e.ts === 'number' && e.ts >= cutoff);
+  if (fresh.length > LOG_HARD_CAP) fresh = fresh.slice(-LOG_HARD_CAP);
+  // Drop oldest entries until we're back under the byte budget.
+  while (fresh.length > 1 && JSON.stringify(fresh).length > LOG_MAX_BYTES) {
+    fresh = fresh.slice(Math.ceil(fresh.length * 0.1)); // trim 10% at a time, cheaper than one-by-one
+  }
+  return fresh;
 }
 function bgLog(event, data) {
   const entry = { ts: Date.now(), source: 'bg', event: event, data: data || null };

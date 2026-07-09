@@ -107,7 +107,7 @@
     // endpoints; everything else keeps just metadata (bodyOmitted flag makes the
     // trimming explicit, so an omitted body isn't confused with an empty response).
     if (urlMatchesDebug(url)) {
-      const trunc = (s) => (s && s.length > 30000) ? s.slice(0, 30000) + '...[TRUNCATED]' : s;
+      const trunc = (s) => (s && s.length > 4000) ? s.slice(0, 4000) + '...[TRUNCATED]' : s;
       const capture = {
         ts: Date.now(),
         url: url,
